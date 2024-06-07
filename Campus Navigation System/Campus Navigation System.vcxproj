@@ -128,9 +128,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="my_map.cpp" />
+    <ClCompile Include="my_map.h" />
+    <ClCompile Include="my_map_define.h" />
+    <ClCompile Include="read_map.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CNS.h" />
+    <ClInclude Include="readmap.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
