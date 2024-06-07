@@ -137,6 +137,10 @@
     <ClInclude Include="CNS.h" />
     <ClInclude Include="readmap.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="南校简易地图数据v1.0.txt" />
+    <Text Include="教学楼详细地图数据v1.0.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
