@@ -28,6 +28,7 @@ typedef struct MY_MATRIX_MAP
 
 typedef struct MY_LIST_MAP
 {
+	int size{ 0 };
 	std::vector<node> node_map;
 	std::vector<std::vector<edge>> edge_map;
 } ALgraph;
