@@ -2,6 +2,8 @@
 
 using namespace std;
 
+void draw_ui();
+
 int main()
 {
 	draw_ui();
@@ -11,30 +13,30 @@ int main()
 void draw_ui()
 {
 	bool running = true;
+	AMgraph* m_G{};
+	ALgraph* l_G{};
 	while (running)
 	{
 		cout << "----------------------------------------\n";
 		cout << "图书管理系统菜单:" << endl;
 		cout << "1.  地图的邻接矩阵的构建\n";
 		cout << "2.  输出地图的邻接矩阵\n";
-		cout << "2.  输出地图的邻接矩阵\n";
 		cout << "3.  地图的邻接表的构建\n";
 		cout << "4.  输出地图的邻接表\n";
-		cout << "2.  导入地图数据\n";
-		cout << "2.  导出地图数据\n";
-		cout << "5.  地图的邻接矩阵的修改\n";
-		cout << "6.  地图的邻接矩阵的删除\n";
-		cout << "7.  地图的邻接表的修改\n";
-		cout << "8.  地图的邻接表的删除\n";
-		cout << "9.  打卡所有景点的过程中所经过的所有景点以及各段距离和总距离\n";
-		cout << "10. 输出从指定点出发，到达图中所有景点的最短距离及经过的地点\n";
-		cout << "11. 输出从指定的景点(起点)到达另一指定景点(终点)的最短距离，以及经过的景点\n";
-		cout << "12. 输出图中所有两景点之间的最短距离\n";
-		cout << "13. 查看收藏夹\n";
+		cout << "5.  导入地图数据为邻接矩阵\n";
+		cout << "6.  导入地图数据为邻接表\n";
+		cout << "7.  导出地图数据\n";
+		cout << "8.  地图的邻接矩阵的修改\n";
+		cout << "9.  地图的邻接矩阵的删除\n";
+		cout << "10.  地图的邻接表的修改\n";
+		cout << "11.  地图的邻接表的删除\n";
+		cout << "12.  打卡所有景点的过程中所经过的所有景点以及各段距离和总距离\n";
+		cout << "13. 输出从指定点出发，到达图中所有景点的最短距离及经过的地点\n";
+		cout << "14. 输出从指定的景点(起点)到达另一指定景点(终点)的最短距离，以及经过的景点\n";
+		cout << "15. 输出图中所有两景点之间的最短距离\n";
 		cout << "14. 退出\n";
 		cout << "----------------------------------------\n";
 		unsigned int run_status;
-		string stemp;
 		cout << "输入你的选择:";
 		cin >> run_status;
 		while (cin.fail()) {
@@ -48,30 +50,48 @@ void draw_ui()
 		{
 		case 1:
 		{
+			create_M_map(m_G);
 			break;
 		}
 		case 2:
 		{
+			if (!check_map_null(m_G))
+			{
+				break;
+			}
+			show_M_map(m_G);
 			break;
 		}
 		case 3:
 		{
-			
+			create_L_map(l_G);
 			break;
 		}
 		case 4:
 		{
-			
+			if (!check_map_null(l_G))
+			{
+				break;
+			}
+			show_L_map(l_G);
 			break;
 		}
 		case 5:
 		{
-			
+			if (!check_map_null(m_G))
+			{
+				break;
+			}
+			import_M_map(m_G);
 			break;
 		}
 		case 6:
 		{
-			
+			if (!check_map_null(l_G))
+			{
+				break;
+			}
+			import_L_map(l_G);
 			break;
 		}
 		case 7:
