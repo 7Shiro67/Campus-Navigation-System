@@ -18,13 +18,7 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="my_map.h">
-      <Filter>头文件</Filter>
-    </ClCompile>
-    <ClCompile Include="my_map.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="read_map.cpp">
+    <ClCompile Include="CNS_basic_function.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="my_map_define.h">
@@ -35,7 +29,7 @@
     <ClInclude Include="CNS.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="readmap.h">
+    <ClInclude Include="CNS_function.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

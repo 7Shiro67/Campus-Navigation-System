@@ -8,6 +8,7 @@ int main()
 {
 	draw_ui();
 	return 0;
+
 }
 
 void draw_ui()
@@ -52,7 +53,7 @@ void draw_ui()
 		{
 			create_M_map(m_G);
 			break;
-		}
+		}	
 		case 2:
 		{
 			if (!check_map_null(m_G))
