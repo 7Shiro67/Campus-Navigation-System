@@ -3,7 +3,6 @@
 #include<iostream>
 #include<queue>
 #include<algorithm>
-#include<cmath>
 
 struct K_edge
 {
@@ -429,32 +428,34 @@ status Floyd(ALgraph* G, std::vector<std::vector<int>>& res_dis, std::vector<std
 	return OK;
 }
 
-status one_TSP(AMgraph* G,int s)
+status TSP(AMgraph* G,int s)
 {
-	std::vector<std::vector<int>> path;
-	std::vector<std::vector<int>> dis;
-	Floyd(G, dis, path);
-	std::vector<std::vector<int>> dp((1 << G->size), std::vector<int>(5, INT_MAX));
-	dp[1][0] = 0;
-	for (int s = 1; s < (1 << G->size); s++) {
-		for (int i = 0; i < G->size; i++) {
-			if ((s & (1 << i)) != 0) {
-				for (int j = 0; j < G->size; j++) {
-					if ((s & (1 << j)) != 0 && i != j) {
-						dp[s][i] = std::min(dp[s][i], dp[s ^ (1 << i)][j] + dis[j][i]);
-					}
+	std::vector<int> dp_dis(G->size);
+	for (int i = 0; i < G->edge_map[s].size(); i++)
+	{
+		if (i == s)
+		{
+			dp_dis[i] = 0;
+		}
+		else
+		{
+			dp_dis[i] = G->edge_map[s][i].distance;
+		}
+	}
+	for(int k = 0; k < dp_dis.size();k++)
+	{
+		for (int i = 0; i < dp_dis.size(); i++)
+		{
+			int min = INT_MAX;
+			for (int j = 0; j < dp_dis.size(); j++)
+			{
+				if (dp_dis[j] + G->edge_map[j][i].distance < min)
+				{
+					min = dp_dis[j] + G->edge_map[j][i].distance;
 				}
 			}
+			dp_dis[i] = min;
 		}
 	}
-	int ans = INT_MAX;
-	int idx = -1;
-	for (int i = 1; i < G->size; i++) {// 0是起始点，就不要加入里面了
-		if (ans > dp[(1 << G->size) - 1][i] + dis[i][0]) {
-			ans = dp[(1 << G->size) - 1][i] + dis[i][0];
-			idx = i;
-		}
-	}
-	std::vector<int> initP(G->size + 1);
 	return OK;
 }
