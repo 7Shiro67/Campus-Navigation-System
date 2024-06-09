@@ -4,7 +4,6 @@
 #include<iostream>
 #include<queue>
 #include<algorithm>
-#include<cmath>
 
 struct K_edge
 {
