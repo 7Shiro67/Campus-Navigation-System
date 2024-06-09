@@ -105,7 +105,7 @@ void draw_ui1()
 			{
 				break;
 			}
-
+			break;
 		}
 		case 5:
 		{
@@ -210,8 +210,10 @@ void draw_ui1()
 		{
 			if (!check_map_null(l_G))
 			{
+				export_L_map(l_G);
 				break;
 			}
+			break;
 		}
 		case 9:
 		{
@@ -409,6 +411,8 @@ void draw_ui2()
 			{
 				break;
 			}
+			export_M_map(m_G);
+			break;
 		}
 		case 5:
 		{
@@ -516,6 +520,7 @@ void draw_ui2()
 			{
 				break;
 			}
+			break;
 		}
 		case 9:
 		{
