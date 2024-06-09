@@ -13,3 +13,6 @@
 #include"my_map_define.h"
 #include "readmap.h"
 #include "my_map.h"
+#include "my_map_define.h"
+#include "readmap.h"
+#include "map_algorithm.h"
