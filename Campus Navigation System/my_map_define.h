@@ -9,6 +9,8 @@ constexpr int OK = 1;
 #include<vector>
 #include<climits>
 #include<string>
+#include<set>
+#include<unordered_map>
 
 typedef int Status;
 
@@ -43,4 +45,7 @@ struct K_Edge
 	int tail;
 	int cost;
 };
+
+using SET = std::set<int>;
+
 #endif // !MY_MAP_DEFINE_H

@@ -29,13 +29,14 @@ void draw_ui()
 		cout << "7.  导出地图数据\n";
 		cout << "8.  地图的邻接矩阵的修改\n";
 		cout << "9.  地图的邻接矩阵的删除\n";
-		cout << "10.  地图的邻接表的修改\n";
-		cout << "11.  地图的邻接表的删除\n";
-		cout << "12.  打卡所有景点的过程中所经过的所有景点以及各段距离和总距离\n";
-		cout << "13. 输出从指定点出发，到达图中所有景点的最短距离及经过的地点\n";
-		cout << "14. 输出从指定的景点(起点)到达另一指定景点(终点)的最短距离，以及经过的景点\n";
-		cout << "15. 输出图中所有两景点之间的最短距离\n";
-		cout << "14. 退出\n";
+		cout << "10. 地图的邻接表的修改\n";
+		cout << "11. 地图的邻接表的删除\n";
+		cout << "12. 打卡所有景点的过程中所经过的所有景点以及各段距离和总距离(邻接矩阵)\n";
+		cout << "13. 打卡所有景点的过程中所经过的所有景点以及各段距离和总距离(邻接表)\n";
+		cout << "14. 输出从指定点出发，到达图中所有景点的最短距离及经过的地点\n";
+		cout << "15. 输出从指定的景点(起点)到达另一指定景点(终点)的最短距离，以及经过的景点\n";
+		cout << "16. 输出图中所有两景点之间的最短距离\n";
+		cout << "17. 退出\n";
 		cout << "----------------------------------------\n";
 		unsigned int run_status;
 		cout << "输入你的选择:";
@@ -79,6 +80,7 @@ void draw_ui()
 		}
 		case 5:
 		{
+			Display_FilesList();
 			if (!check_map_null(m_G))
 			{
 				break;
@@ -88,6 +90,7 @@ void draw_ui()
 		}
 		case 6:
 		{
+			Display_FilesList();
 			if (!check_map_null(l_G))
 			{
 				break;
@@ -120,15 +123,28 @@ void draw_ui()
 			break;
 		case 12:
 		{
-			
-			break;
+			if (!check_map_null(m_G))
+			{
+				break;
+			}
+			string name;
+			int start = -1;
+			cin >> name;
+			for (int i = 0; i < m_G->node_map.size(); i++)
+			{
+				if (m_G->node_map[i].name == name) 
+				{
+					start = i;
+					break;
+				}
+			}
+			TSP(start,m_G);
 		}
 		case 13:
 		{
-			
 			break;
 		}
-		case 14:
+		case 17:
 		{
 			running = false;
 			break;
