@@ -24,13 +24,28 @@
     <ClCompile Include="my_map_define.h">
       <Filter>头文件</Filter>
     </ClCompile>
+    <ClCompile Include="my_map.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="read_map.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CNS.h">
+    <ClInclude Include="CNS_function.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="CNS_function.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="CNS.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="教学楼详细地图数据v1.0.txt" />
+    <Text Include="南校简易地图数据v1.1.txt">
+      <Filter>资源文件</Filter>
+    </Text>
   </ItemGroup>
 </Project>

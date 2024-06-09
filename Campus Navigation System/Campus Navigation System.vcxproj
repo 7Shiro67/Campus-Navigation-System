@@ -130,14 +130,16 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="CNS_basic_function.cpp" />
+    <ClCompile Include="my_map.cpp" />
     <ClCompile Include="my_map_define.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CNS.h" />
     <ClInclude Include="CNS_function.h" />
+    <ClInclude Include="readmap.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="南校简易地图数据v1.0.txt" />
+    <Text Include="南校简易地图数据v1.1.txt" />
     <Text Include="教学楼详细地图数据v1.0.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
