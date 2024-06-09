@@ -133,6 +133,7 @@
     <ClCompile Include="CNS_basic_function.cpp" />
     <ClCompile Include="my_map.cpp" />
     <ClCompile Include="my_map_define.h" />
+    <ClCompile Include="read_map.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CNS.h" />

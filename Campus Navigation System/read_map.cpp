@@ -4,12 +4,15 @@
 #include <string>
 #include <sstream>
 #include <filesystem>
+#include <iostream>
 
 namespace fs = std::filesystem;
 
 status import_M_map(AMgraph* G)
 {
-	std::ifstream ifile("./南校简易地图数据v1.1.txt");
+	std::string filename;
+	std::cin >> filename;
+	std::ifstream ifile(filename);
 	std::string s_temp;
 	int temp{};
 	if (!ifile.is_open())
@@ -58,7 +61,9 @@ status import_M_map(AMgraph* G)
 
 status import_L_map(ALgraph* G)
 {
-	std::ifstream ifile("./南校简易地图数据v1.1.txt");
+	std::string filename;
+	std::cin >> filename;
+	std::ifstream ifile(filename);
 	std::string s_temp;
 	int temp{};
 	if (!ifile.is_open())

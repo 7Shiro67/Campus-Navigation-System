@@ -365,7 +365,7 @@ void draw_ui2()
 		cout << "6.  地图的邻接矩阵的删除\n";
 		cout << "7.  地图的邻接矩阵的插入\n";
 		cout << "8.  打卡所有景点的过程中所经过的所有景点以及各段距离和总距离\n";
-		cout << "9. 输出从指定点出发，到达图中所有景点的最短距离及经过的地点\n";
+		cout << "9.  输出从指定点出发，到达图中所有景点的最短距离及经过的地点\n";
 		cout << "10. 输出从指定的景点(起点)到达另一指定景点(终点)的最短距离，以及经过的景点\n";
 		cout << "11. 输出图中所有两景点之间的最短距离\n";
 		cout << "12. 退出\n";
@@ -402,6 +402,7 @@ void draw_ui2()
 			{
 				break;
 			}
+			Display_FilesList();
 			import_M_map(m_G);
 			break;
 		}
@@ -520,6 +521,18 @@ void draw_ui2()
 			{
 				break;
 			}
+			string name;
+			int start = -1;
+			cin >> name;
+			for (int i = 0; i < m_G->node_map.size(); i++)
+			{
+				if (m_G->node_map[i].name == name)
+				{
+					start = i;
+					break;
+				}
+			}
+			TSP(start, m_G);
 			break;
 		}
 		case 9:
@@ -638,23 +651,8 @@ void draw_ui2()
 		}
 		case 12:
 		{
-			if (!check_map_null(m_G))
-			{
-				break;
-			}
-			string name;
-			int start = -1;
-			cin >> name;
-			for (int i = 0; i < m_G->node_map.size(); i++)
-			{
-				if (m_G->node_map[i].name == name) 
-				{
-					start = i;
-					break;
-				}
-			}
-			TSP(start,m_G);
-		}
+
+		
 			running = false;
 			break;
 		}
@@ -664,7 +662,7 @@ void draw_ui2()
 		}
 		case 14:
 		{
-			
+			break;
 		}
 		default:
 			break;
