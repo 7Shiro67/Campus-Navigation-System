@@ -3,14 +3,18 @@
 
 using status = int;
 constexpr auto error = 0;
-constexpr auto OK = 1;
+constexpr int Error = 0;
+constexpr int OK = 1;
+
 #include<vector>
 #include<climits>
 #include<string>
 
+typedef int Status;
+
 typedef struct MY_NODE
 {
-	std::string name;
+	std::string name{};
 } node;
 
 typedef struct MY_EDGE
@@ -33,5 +37,10 @@ typedef struct MY_LIST_MAP
 	std::vector<std::vector<edge>> edge_map;
 } ALgraph;
 
-
+struct K_Edge
+{
+	int head;
+	int tail;
+	int cost;
+};
 #endif // !MY_MAP_DEFINE_H
