@@ -258,7 +258,7 @@ status dijkstra(AMgraph* G,std::vector<int>& min_path,std::vector<int>& before,i
 	std::vector<bool> is_arrived(G->size, false);
 	is_arrived[S] = true;
 	int temp = S;
-	while (true)
+	for (int j = 0; j < G->size; j++)
 	{
 		for (int i = 0; i < G->edge_map[temp].size(); i++)
 		{
@@ -295,7 +295,7 @@ status dijkstra(ALgraph* G, std::vector<int>& min_path, std::vector<int>& before
 	std::vector<bool> is_arrived(G->size, false);
 	is_arrived[S] = true;
 	int temp = S;
-	while (true)
+	for (int j = 0; j < G->size; j++)
 	{
 		for (int i = 0; i < G->edge_map[temp].size(); i++)
 		{
@@ -328,8 +328,8 @@ status dijkstra(ALgraph* G, std::vector<int>& min_path, std::vector<int>& before
 
 status Floyd(AMgraph* G, std::vector<std::vector<int>>& res_dis, std::vector<std::vector<int>>& res_path)
 {
-	std::vector<std::vector<int>> dis(G->size,std::vector<int>(G->size));
-	std::vector<std::vector<int>> path(G->size, std::vector<int>(G->size));
+	std::vector<std::vector<int>> dis(G->size,std::vector<int>(G->size,0));
+	std::vector<std::vector<int>> path(G->size, std::vector<int>(G->size,0));
 	for (int i = 0; i < G->size; i++)
 	{
 		for (int j = 0; j < G->size; j++)
@@ -344,7 +344,7 @@ status Floyd(AMgraph* G, std::vector<std::vector<int>>& res_dis, std::vector<std
 	{
 		for (int j = 0; j < G->size; j++)
 		{
-			if (i == j || path[i][j] == INT_MAX)
+			if (i == j || dis[i][j] == INT_MAX)
 			{
 				path[i][j] = -1;
 			}
@@ -360,7 +360,7 @@ status Floyd(AMgraph* G, std::vector<std::vector<int>>& res_dis, std::vector<std
 		{
 			for (int k = 0; k < G->size; k++)
 			{
-				if (dis[j][i] + dis[i][k] < dis[j][k])
+				if (dis[j][i] != INT_MAX && dis[i][k] != INT_MAX && dis[j][i] + dis[i][k] < dis[j][k])
 				{
 					dis[j][k] = dis[j][i] + dis[i][k];
 					path[j][k] = i;
@@ -373,8 +373,58 @@ status Floyd(AMgraph* G, std::vector<std::vector<int>>& res_dis, std::vector<std
 	return OK;
 }
 
-status Floyd(ALgraph* G)
+status Floyd(ALgraph* G, std::vector<std::vector<int>>& res_dis, std::vector<std::vector<int>>& res_path)
 {
+	std::vector<std::vector<int>> dis(G->size, std::vector<int>(G->size, 0));
+	std::vector<std::vector<int>> path(G->size, std::vector<int>(G->size, 0));
+	for (int i = 0; i < G->size; i++)
+	{
+		for (int j = 0; j < G->edge_map[i].size(); j++)
+		{
+			edge temp = G->edge_map[i][j];
+			dis[i][temp.next_node] = temp.distance;
+		}
+	}
+	for (int i = 0; i < G->size; i++)
+	{
+		for (int j = 0; j < G->size; j++)
+		{
+			if (i != j && dis[i][j] == 0)
+			{
+				dis[i][j] = INT_MAX;
+			}
+		}
+	}
+	for (int i = 0; i < G->size; i++)
+	{
+		for (int j = 0; j < G->size; j++)
+		{
+			if (i == j || dis[i][j] == INT_MAX)
+			{
+				path[i][j] = -1;
+			}
+			else
+			{
+				path[i][j] = i;
+			}
+		}
+	}
+	for (int i = 0; i < G->size; i++)
+	{
+		for (int j = 0; j < G->size; j++)
+		{
+			for (int k = 0; k < G->size; k++)
+			{
+				if (dis[j][i] != INT_MAX && dis[i][k] != INT_MAX && dis[j][i] + dis[i][k] < dis[j][k])
+				{
+					dis[j][k] = dis[j][i] + dis[i][k];
+					path[j][k] = i;
+				}
+			}
+		}
+	}
+	res_dis = dis;
+	res_path = path;
 	return OK;
 }
 
@@ -407,4 +457,5 @@ status TSP(AMgraph* G,int s)
 			dp_dis[i] = min;
 		}
 	}
+	return OK;
 }

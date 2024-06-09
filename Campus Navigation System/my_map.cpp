@@ -38,6 +38,35 @@ status check_map_null(void* G)
 	return OK;
 }
 
+status show_node(const AMgraph* G)
+{
+	if (!check_map_null((void*)G))
+	{
+		return error;
+	}
+	for (int i = 0; i < G->node_map.size(); i++)
+	{
+		std::cout << i + 1 << "\t" << G->node_map[i].name << '\n';
+	}
+	std::cout << '\n';
+	return OK;
+}
+
+
+status show_node(const ALgraph* G)
+{
+	if (!check_map_null((void*)G))
+	{
+		return error;
+	}
+	for (int i = 0; i < G->node_map.size(); i++)
+	{
+		std::cout << i + 1 << "\t" << G->node_map[i].name << '\n';
+	}
+	std::cout << '\n';
+	return OK;
+}
+
 status show_M_map(const AMgraph* G)
 {
 	if (!check_map_null((void*)G))
@@ -233,10 +262,10 @@ status insert_M_node(AMgraph* G, const node& src)
 	return OK;
 }
 
-status insert_L_node(AMgraph* G, const node& src)
+status insert_L_node(ALgraph* G, const node& src)
 {
 	G->node_map.push_back(src);
-	update_map_m_size(G);
+	update_map_l_size(G);
 	G->edge_map.resize(G->size);
 	return OK;
 }
@@ -267,21 +296,40 @@ status change_L_edge(ALgraph* G, const edge& src, const int& start, const int& e
 
 status delete_M_edge(AMgraph* G, const int& start, const int& end)
 {
+	G->edge_map[start][end].distance = INT_MAX;
+	G->edge_map[end][start].distance = INT_MAX;
 	return OK;
-
 }
+
 status delete_L_edge(ALgraph* G, const int& start, const int& end)
 {
+	for (int i = 0; i < G->edge_map[start].size(); i++)
+	{
+		if (G->edge_map[start][i].next_node == end)
+		{
+			G->edge_map[start].erase(G->edge_map[start].begin() + i);
+		}
+	}
+	for (int i = 0; i < G->edge_map[end].size(); i++)
+	{
+		if (G->edge_map[end][i].next_node == start)
+		{
+			G->edge_map[end].erase(G->edge_map[end].begin() + i);
+		}
+	}
 	return OK;
-
 }
 status insert_M_edge(AMgraph* G, const edge& src, const int& start, const int& end)
 {
+	G->edge_map[start][end] = src;
 	return OK;
-
 }
-status insert_L_edge(AMgraph* G, const edge& src, const int& start, const int& end)
+status insert_L_edge(ALgraph* G, const edge& src, const int& start,const int& end)
 {
+	edge temp = src;
+	temp.next_node = end;
+	G->edge_map[start].push_back(temp);
+	temp.next_node = start;
+	G->edge_map[end].push_back(temp);
 	return OK;
-
 }

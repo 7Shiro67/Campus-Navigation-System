@@ -24,6 +24,6 @@ status dijkstra(ALgraph* G, std::vector<int>& min_path, std::vector<int>& before
 
 status Floyd(AMgraph* G, std::vector<std::vector<int>>& res_dis, std::vector<std::vector<int>>& res_path);
 
-status Floyd(ALgraph* G);
+status Floyd(ALgraph* G ,std::vector<std::vector<int>>& res_dis, std::vector<std::vector<int>>& res_path);
 
-status TSP(AMgraph* G);
+status TSP(AMgraph* G, int s);

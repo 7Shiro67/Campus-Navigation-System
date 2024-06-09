@@ -91,8 +91,8 @@ status import_L_map(ALgraph* G)
 			ss >> start >> end;
 			start--, end--;
 			ss >> temp;
-			G->edge_map[start].push_back({ temp,end });
-			G->edge_map[end].push_back({ temp,start });
+			G->edge_map[start].push_back({ end,temp });
+			G->edge_map[end].push_back({ start,temp });
 		}
 	}
 	return OK;
@@ -100,6 +100,7 @@ status import_L_map(ALgraph* G)
 
 status export_M_map(AMgraph* G)
 {
+
 	return OK;
 }
 
