@@ -345,7 +345,8 @@ void draw_ui1()
 				std::cout << '\n';
 			}
 			break;
-		}case 12:
+		}
+		case 12:
 		{
 			running = false;
 			break;
