@@ -14,6 +14,8 @@ constexpr int OK = 1;
 
 typedef int Status;
 
+typedef int Status;
+
 typedef struct MY_NODE
 {
 	std::string name{};

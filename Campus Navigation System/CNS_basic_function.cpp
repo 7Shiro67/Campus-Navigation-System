@@ -4,10 +4,11 @@
 using namespace std;
 namespace fs = filesystem;
 
+
 Status Display_FilesList()
 {
 	cout << endl;
-	cout << "文件列表:" << endl;
+	cout << "脦脛录镁脕脨卤铆:" << endl;
 	string inputPath = "./";
 
 	for (const auto& entry : fs::directory_iterator(inputPath))
@@ -112,116 +113,3 @@ Status TSP(int start_node,AMgraph* G)
 	}
 	return OK;
 }
-//
-//Status MiniST_K_L(ALgraph* L, int &totalcost)
-//{
-//	vector<K_Edge>Edges;
-//	int pos = 0;
-//	for (int i = 0; i < L->edge_map.size(); i++)
-//	{
-//		for (int j = 0; j < L->edge_map[i].size(); j++)
-//		{
-//			if (L->edge_map[i][j].distance != INT_MAX&&L->edge_map[i][j].next_node>i)
-//			{
-//				Edges[pos].head = i;
-//				Edges[pos].tail = L->edge_map[i][j].next_node;
-//				Edges[pos].cost = L->edge_map[i][j].distance;
-//				pos++;
-//			}
-//		}
-//	}
-//
-//	sort(Edges.begin(), Edges.end(), compare_edge);
-//
-//	vector<int> vexset;
-//	bool flag = true;
-//	for (int i = 0; i < L->node_map.size(); i++)
-//	{
-//		vexset[i] = i;
-//	}
-//	for (int i = 0; i < Edges.size(); i++)
-//	{
-//		int v1 = Edges[i].head;
-//		int v2 = Edges[i].tail;
-//		int vs1 = vexset[v1];
-//		int vs2 = vexset[v2];
-//		if (vs1 != vs2)
-//		{
-//			totalcost += Edges[i].cost;
-//			if (flag)
-//			{
-//				cout << "起点" << "\t" << "终点" <<"\t" << "距离" << endl;
-//				flag = 0;
-//			}
-//			cout << L->node_map[Edges[i].head].name <<"\t" << L->node_map[Edges[i].tail].name<<"\t"<<Edges[i].cost<< endl;
-//			for (int j = 0; j < Edges.size(); j++)
-//			{
-//				if (vexset[j] == vs2)
-//				{
-//					vexset[j] = vs1;
-//				}
-//			}
-//		}
-//	}
-//	cout <<"总距离: "<< totalcost<<endl;
-//	return OK;
-//}
-
-//SET Create_Set(AMgraph* G,int s)
-//{
-//	vector<int> sv;
-//	for (int i = 0; i < G->node_map.size(); i++)
-//	{
-//		if (i!=s)
-//		{
-//			sv.push_back(i);
-//		}
-//	}
-//	SET V(sv.begin(), sv.end());
-//	return V;
-//}
-//
-//
-//int TSP_G(AMgraph* G, int s,SET V, int i,std::vector<int>& path)
-//{
-//	cout << i << ' ';
-//	int minpathlen = INT_MAX;
-//	if (V.size()==0)
-//	{
-//		path.push_back(i);
-//		return G->edge_map[i][s].distance;
-//	}
-//	else 
-//	{
-//		for (auto it=V.begin();it!=V.end();++it)
-//		{
-//			SET tmpV = V;
-//			int j = *it;
-//			tmpV.erase(j);
-//			std::vector<int> tmpPath;
-//			int pathlen = TSP_G(G, s, tmpV, j,tmpPath) + G->edge_map[i][j].distance;
-//			if (pathlen<minpathlen)
-//			{
-//				minpathlen = pathlen;
-//				path = tmpPath;
-//				path.push_back(i);
-//			}
-//		}
-//		return minpathlen;
-//	}
-//}
-//
-//void solveTSP(AMgraph* G, int start)
-//{
-//	if (start < 0)exit(ERROR);
-//	SET V = Create_Set(G, start);
-//	std::vector<int> path;
-//	int minCost = TSP_G(G, start, V, start, path);
-//	reverse(path.begin(), path.end());
-//	cout << "路径：" << G->node_map[start].name;
-//	for (int i = 0; i < path.size(); i++)
-//	{
-//		cout << "->" << G->node_map[path[i]].name;
-//	}
-//	cout << "\n总路程:" << minCost << endl;
-//}
