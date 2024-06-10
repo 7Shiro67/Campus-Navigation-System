@@ -5,13 +5,16 @@
 #include <sstream>
 #include <filesystem>
 #include <iostream>
+#include <unordered_map>
 
 namespace fs = std::filesystem;
 
-status import_M_map(AMgraph* G)
+status import_M_map(AMgraph* G,std::vector<std::string> v_s)
 {
+	int i;
 	std::string filename;
-	std::cin >> filename;
+	std::cin >> i;
+	filename = v_s[i];
 	std::ifstream ifile(filename);
 	std::string s_temp;
 	int temp{};
@@ -59,10 +62,12 @@ status import_M_map(AMgraph* G)
 	return OK;
 }
 
-status import_L_map(ALgraph* G)
+status import_L_map(ALgraph* G, std::vector<std::string> v_s)
 {
+	int i;
 	std::string filename;
-	std::cin >> filename;
+	std::cin >> i;
+	filename = v_s[i];
 	std::ifstream ifile(filename);
 	std::string s_temp;
 	int temp{};
@@ -117,7 +122,7 @@ status export_M_map(AMgraph* G)
 		ss.clear();
 		ss << "export_M(" << i << ").txt";
 	}
-	std::ofstream fout(ss.str());
+	std::ofstream fout( "/导出/" + ss.str());
 	for (int i = 0; i < G->node_map.size(); i++)
 	{
 		fout << i + 1 << "\t" << G->node_map[i].name << '\n';
@@ -160,10 +165,10 @@ status export_L_map(ALgraph* G)
 	if (fs::exists(ss.str()))
 	{
 		i++;
-		ss.clear();
+		ss.str("");
 		ss << "export_L(" << i << ").txt";
 	}
-	std::ofstream fout(ss.str());
+	std::ofstream fout("/导出/" + ss.str());
 	for (int i = 0; i < G->node_map.size(); i++)
 	{
 		fout << i + 1 << "\t" << G->node_map[i].name << '\n';
@@ -178,6 +183,33 @@ status export_L_map(ALgraph* G)
 			fout << "|" << edge_map[i][j].distance << "->" << edge_map[i][j].next_node + 1;
 		}
 		fout << '\n';
+	}
+	return OK;
+}
+
+status import_introduction(std::unordered_map<std::string,std::string>& introduction)
+{
+	std::string filename = "简介/input.txt";
+	std::ifstream ifile(filename);
+	std::string s_temp;
+	if (!ifile.is_open())
+	{
+		return error;
+	}
+	else
+	{
+		std::string key, value;
+		while (!ifile.eof())
+		{
+			std::getline(ifile, s_temp);
+			if (s_temp.empty())
+			{
+				break;
+			}
+			std::stringstream ss{ s_temp };
+			ss >> key >> value;
+			introduction[key] = value;
+		}
 	}
 	return OK;
 }

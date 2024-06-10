@@ -9,6 +9,7 @@
 #include<sys/types.h>
 #include<Windows.h>
 #include<string>
+#include<functional>
 #include"CNS_function.h"
 #include"my_map_define.h"
 #include "readmap.h"

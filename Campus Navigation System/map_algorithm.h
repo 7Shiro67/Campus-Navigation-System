@@ -26,4 +26,6 @@ status Floyd(AMgraph* G, std::vector<std::vector<int>>& res_dis, std::vector<std
 
 status Floyd(ALgraph* G ,std::vector<std::vector<int>>& res_dis, std::vector<std::vector<int>>& res_path);
 
-status TSP(AMgraph* G, int s);
+status oneTSP(AMgraph* G, int s, std::vector<int>& new_path);
+
+double show_difference_TSP(AMgraph* G, int& cnt1, int& cnt2);

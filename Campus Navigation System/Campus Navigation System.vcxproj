@@ -139,6 +139,7 @@
     <ClInclude Include="CNS.h" />
     <ClInclude Include="map_algorithm.h" />
     <ClInclude Include="CNS_function.h" />
+    <ClInclude Include="my_map.h" />
     <ClInclude Include="readmap.h" />
   </ItemGroup>
   <ItemGroup>
