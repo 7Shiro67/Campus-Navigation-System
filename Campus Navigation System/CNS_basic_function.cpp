@@ -122,10 +122,10 @@ void preorder_traversal(int node, unordered_map<int, vector<int>> &adj_list, vec
 		if (!visited[neighbor])
 		{
 			totalcost += G->edge_map[node][neighbor].distance;
-			cout << "±ß: " << G->node_map[node].name << " -> " << G->node_map[neighbor].name << " (¾àÀë: " << G->edge_map[node][neighbor].distance << ")" << endl;
+			cout << left<<setw(10)<<G->node_map[node].name << " -> " <<left<<setw(10)<< G->node_map[neighbor].name << right<<setw(10)<<" (¾àÀë: " << G->edge_map[node][neighbor].distance << ")" << endl;
 			preorder_traversal(neighbor, adj_list, visited, totalcost, G);
 			totalcost += G->edge_map[neighbor][node].distance;
-			cout << "±ß: " << G->node_map[neighbor].name << " -> " << G->node_map[node].name << " (¾àÀë: " << G->edge_map[neighbor][node].distance << ")" << endl;
+			cout << left << setw(10)<< G->node_map[neighbor].name << " -> " <<left<< setw(10)<< G->node_map[node].name <<right << setw(10) << " (¾àÀë: " << G->edge_map[neighbor][node].distance << ")" << endl;
 		}
 	}
 }
@@ -138,10 +138,10 @@ void preorder_traversal(int node, unordered_map<int, vector<int>>& adj_list, vec
 		if (!visited[neighbor])
 		{
 			totalcost += G->edge_map[node][neighbor].distance;
-			cout << "±ß: " << G->node_map[node].name << " -> " << G->node_map[neighbor].name << " (¾àÀë: " << G->edge_map[node][neighbor].distance << ")" << endl;
+			cout << left << setw(10) << G->node_map[node].name << " -> " << left << setw(10) << G->node_map[neighbor].name << right << setw(10) << " (¾àÀë: " << G->edge_map[node][neighbor].distance << ")" << endl;
 			preorder_traversal(neighbor, adj_list, visited, totalcost, G);
 			totalcost += G->edge_map[neighbor][node].distance;
-			cout << "±ß: " << G->node_map[neighbor].name << " -> " << G->node_map[node].name << " (¾àÀë: " << G->edge_map[neighbor][node].distance << ")" << endl;
+			cout << left << setw(10) << G->node_map[neighbor].name << " -> " << left << setw(10) << G->node_map[node].name << right << setw(10) << " (¾àÀë: " << G->edge_map[neighbor][node].distance << ")" << endl;
 		}
 	}
 }

@@ -78,7 +78,10 @@ void draw_ui1()
 		{
 		case 1:
 		{
-			create_L_map(l_G);
+			if (create_L_map(l_G))
+			{
+				cout << "邻接表创建成功"<<endl;
+			}
 			break;
 		}
 		case 2:
@@ -98,7 +101,10 @@ void draw_ui1()
 			}
 			Display_FilesList();
 			cout << "请输入文件名:";
-			import_L_map(l_G);
+			if (import_L_map(l_G))
+			{
+				cout << "导入成功" << endl;
+			}
 			break;
 		}
 		case 4:
@@ -224,7 +230,6 @@ void draw_ui1()
 			cout << "请输入起始点的序号: ";
 			cin >> start;
 			TSP(start, l_G);
-			break;
 			break;
 		}
 		case 9:
@@ -396,7 +401,10 @@ void draw_ui2()
 		{
 		case 1:
 		{
-			create_M_map(m_G);
+			if (create_M_map(m_G))
+			{
+				cout << "邻接矩阵创建成功"<<endl;
+			}
 			break;
 		}
 		case 2:
@@ -416,7 +424,10 @@ void draw_ui2()
 			}
 			Display_FilesList();
 			cout << "请输入文件名:";
-			import_M_map(m_G);
+			if (import_M_map(m_G))
+			{
+				cout << "导入成功" << endl;
+			}
 			break;
 		}
 		case 4:
