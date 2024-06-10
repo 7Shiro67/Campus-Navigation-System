@@ -5,6 +5,7 @@ using namespace std;
 void draw_ui1();
 void draw_ui2();
 
+
 int main()
 {
 	bool running = true;
@@ -62,7 +63,8 @@ void draw_ui1()
 		cout << "9.  输出从指定点出发，到达图中所有景点的最短距离及经过的地点\n";
 		cout << "10. 输出从指定的景点(起点)到达另一指定景点(终点)的最短距离，以及经过的景点\n";
 		cout << "11. 输出图中所有两景点之间的最短距离\n";
-		cout << "12. 退出\n";
+		cout << "12. 输出景点的简介\n";
+		cout << "13. 退出\n";
 		cout << "----------------------------------------\n";
 		unsigned int run_status;
 		cout << "输入你的选择:";
@@ -99,9 +101,12 @@ void draw_ui1()
 			{
 				break;
 			}
-			Display_FilesList();
-			cout << "请输入文件名:";
-			if (import_L_map(l_G))
+			free(l_G);
+			create_L_map(l_G);
+			vector<string> v_s;
+			Display_FilesList(v_s);
+			cout << "请输入文件的序号:";
+			if (import_L_map(l_G,v_s))
 			{
 				cout << "导入成功" << endl;
 			}
@@ -349,12 +354,11 @@ void draw_ui1()
 		}
 		case 12:
 		{
-			running = false;
 			break;
 		}
 		case 13:
 		{
-			
+			running = false;
 			break;
 		}
 		case 14:
@@ -387,7 +391,10 @@ void draw_ui2()
 		cout << "9.  输出从指定点出发，到达图中所有景点的最短距离及经过的地点\n";
 		cout << "10. 输出从指定的景点(起点)到达另一指定景点(终点)的最短距离，以及经过的景点\n";
 		cout << "11. 输出图中所有两景点之间的最短距离\n";
-		cout << "12. 退出\n";
+		cout << "12. 输出景点的简介\n";
+		cout << "13. 有关选项8的另一种实现弗洛伊德+贪心实现\n";
+		cout << "14. 最小生成树与弗洛伊德实现的对比\n";
+		cout << "15. 退出\n";
 		cout << "----------------------------------------\n";
 		unsigned int run_status;
 		cout << "输入你的选择:";
@@ -424,9 +431,12 @@ void draw_ui2()
 			{
 				break;
 			}
-			Display_FilesList();
-			cout << "请输入文件名:";
-			if (import_M_map(m_G))
+			free(m_G);
+			create_M_map(m_G);
+			vector<string> v_s;
+			Display_FilesList(v_s);
+			cout << "请输入文件的序号:";
+			if (import_M_map(m_G,v_s))
 			{
 				cout << "导入成功" << endl;
 			}
@@ -443,7 +453,6 @@ void draw_ui2()
 		}
 		case 5:
 		{
-			Display_FilesList();
 			if (!check_map_null(m_G))
 			{
 				break;
@@ -555,7 +564,8 @@ void draw_ui2()
 			}
 			cout << "请输入起始点的序号: ";
 			cin >> start;
-			TSP(start, m_G);
+			int totalcost;
+			TSP(start, m_G, totalcost,1);
 			break;
 		}
 		case 9:
@@ -674,9 +684,18 @@ void draw_ui2()
 		}
 		case 12:
 		{
-
-		
-			running = false;
+			show_node(m_G);
+			unordered_map<string, string> temp;
+			if (!import_introduction(temp))
+			{
+				cout << "读入文件失败" << endl;
+				break;
+			}
+			cout << "请输入你要查询简介的地点的序号" << endl;
+			int i;
+			cin >> i;
+			string temp_s = m_G->node_map[i - 1].name;
+			cout << temp[temp_s] << endl;
 			break;
 		}
 		case 13:
@@ -684,18 +703,28 @@ void draw_ui2()
 			vector<int> path;
 			int i;
 			cin >> i;
-			TSP(m_G, i, path);
+			oneTSP(m_G, i, path);
 			int sum = 0;
 			for (int i = 0; i < path.size() - 1; i++)
 			{
-				cout << m_G->edge_map[path[i]][path[i + 1]].distance << '\n';
+				cout << m_G->edge_map[path[i]][path[i + 1]].distance << ' ';
 				sum += m_G->edge_map[path[i]][path[i + 1]].distance;
 			}
-			cout << sum;
+			cout << sum << '\n';
 			break;
 		}
 		case 14:
 		{
+			int cnt1, cnt2;
+			double res = show_difference_TSP(m_G,cnt1,cnt2);
+			cout << "最小生成树算法最优的情况有" << cnt1 << "种" << endl;
+			cout << "最短路径算法最优的情况有" << cnt2 << "种" << endl;
+			cout << res << endl;
+			break;
+		}
+		case 15:
+		{
+			running = false;
 			break;
 		}
 		default:

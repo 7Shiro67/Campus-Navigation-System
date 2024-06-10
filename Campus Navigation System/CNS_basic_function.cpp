@@ -3,20 +3,25 @@
 using namespace std;
 namespace fs = filesystem;
 
-Status Display_FilesList()
+Status Display_FilesList(vector<string>& v_s)
 {
-	cout << endl;
-	cout << "文件列表:" << endl;
 	string inputPath = "./";
-	for (const auto &entry : fs::directory_iterator(inputPath))
+	for (const auto& entry : fs::directory_iterator(inputPath))
 	{
 		if (entry.is_regular_file())
 		{
 			if (entry.path().filename().extension() == ".txt")
-				cout << entry.path().filename().string() << endl;
+			{
+				v_s.push_back(entry.path().filename().string());
+			}
 		}
 	}
-
+	cout << endl;
+	cout << "文件列表:" << endl;
+	for (int i = 0; i < v_s.size(); i++)
+	{
+		cout <<i << ":" << v_s[i] << "\n";
+	}
 	return OK;
 }
 
@@ -114,7 +119,7 @@ Status MiniST_K(ALgraph* G, vector<K_Edge>& mst_edges, int& totalcost)
 }
 
 
-void preorder_traversal(int node, unordered_map<int, vector<int>> &adj_list, vector<bool> &visited, int &totalcost, AMgraph *G)
+void preorder_traversal(int node, unordered_map<int, vector<int>> &adj_list, vector<bool> &visited, int &totalcost, AMgraph *G,int flag)
 {
 	visited[node] = true;
 	for (int neighbor : adj_list[node])
@@ -122,9 +127,11 @@ void preorder_traversal(int node, unordered_map<int, vector<int>> &adj_list, vec
 		if (!visited[neighbor])
 		{
 			totalcost += G->edge_map[node][neighbor].distance;
+			if(flag)
 			cout << left<<setw(10)<<G->node_map[node].name << " -> " <<left<<setw(10)<< G->node_map[neighbor].name << right<<setw(10)<<" (距离: " << G->edge_map[node][neighbor].distance << ")" << endl;
-			preorder_traversal(neighbor, adj_list, visited, totalcost, G);
+			preorder_traversal(neighbor, adj_list, visited, totalcost, G,flag);
 			totalcost += G->edge_map[neighbor][node].distance;
+			if(flag)
 			cout << left << setw(10)<< G->node_map[neighbor].name << " -> " <<left<< setw(10)<< G->node_map[node].name <<right << setw(10) << " (距离: " << G->edge_map[neighbor][node].distance << ")" << endl;
 		}
 	}
@@ -146,16 +153,18 @@ void preorder_traversal(int node, unordered_map<int, vector<int>>& adj_list, vec
 	}
 }
 
-Status TSP(int start_node, AMgraph *G)
+Status TSP(int start_node, AMgraph *G,int& totalcost,int flag)
 {
 	vector<K_Edge> mst_edges;
-	int totalcost = 0;
+	totalcost = 0;
 	Status status = MiniST_K(G, mst_edges, totalcost);
 
 	if (status == OK)
 	{
-		cout << "最小生成树构建成功" << endl;
-
+		if (flag == 1)
+		{
+			cout << "最小生成树构建成功" << endl;
+		}
 		unordered_map<int, vector<int>> adj_list;
 		for (const auto &edge : mst_edges)
 		{
@@ -165,10 +174,15 @@ Status TSP(int start_node, AMgraph *G)
 
 		vector<bool> visited(G->node_map.size(), false);
 		vector<int> tour;
-		cout << "打卡路径: " << endl;
-		preorder_traversal(start_node, adj_list, visited, totalcost, G);
+		if (flag == 1)
+		{
+			cout << "打卡路径: " << endl;
+		}preorder_traversal(start_node, adj_list, visited, totalcost, G,flag);
 
-		cout << "总距离: " << totalcost << endl;
+		if (flag == 1)
+		{
+			cout << "总距离: " << totalcost << endl;
+		}
 	}
 	else
 	{

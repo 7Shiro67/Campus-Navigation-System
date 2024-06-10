@@ -1,4 +1,5 @@
 #include "my_map_define.h"
+#include "CNS_function.h"
 #include <limits>
 #include<iostream>
 #include<queue>
@@ -457,7 +458,7 @@ std::vector<int> find_path(const std::vector<std::vector<int>>& path, int s, int
 	return res;
 }
 
-status TSP(AMgraph* G,int s,std::vector<int>& new_path)
+status oneTSP(AMgraph* G,int s,std::vector<int>& new_path)
 {
 	std::vector<std::vector<int>> dis;
 	std::vector<std::vector<int>> path;
@@ -491,4 +492,28 @@ status TSP(AMgraph* G,int s,std::vector<int>& new_path)
 		itor++;
 	}
 	return OK;
+}
+
+double show_difference_TSP(AMgraph* G, int& cnt1, int& cnt2)
+{
+	int cnt = 0;
+	for (int i = 0; i < G->size; i++)
+	{
+		int totalcost;
+		TSP(i, G, totalcost, 0);
+		std::vector<int> path;
+		oneTSP(G, i, path);
+		int sum = 0;
+		for (int i = 0; i < path.size() - 1; i++)
+		{
+			sum += G->edge_map[path[i]][path[i + 1]].distance;
+		}
+		if (totalcost < sum)
+		{
+			cnt++;
+		}
+	}
+	cnt1 = cnt;
+	cnt2 = G->size - cnt;
+	return cnt * 1.0 / cnt2;
 }
