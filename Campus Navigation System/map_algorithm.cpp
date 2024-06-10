@@ -354,16 +354,16 @@ status Floyd(AMgraph* G, std::vector<std::vector<int>>& res_dis, std::vector<std
 			}
 		}
 	}
-	for (int i = 0; i < G->size; i++)
+	for (int k = 0; k < G->size; k++)
 	{
-		for (int j = 0; j < G->size; j++)
+		for (int i = 0; i < G->size; i++)
 		{
-			for (int k = 0; k < G->size; k++)
+			for (int j = 0; j < G->size; j++)
 			{
-				if (dis[j][i] != INT_MAX && dis[i][k] != INT_MAX && dis[j][i] + dis[i][k] < dis[j][k])
+				if (dis[i][k] != INT_MAX && dis[k][j] != INT_MAX && dis[i][k] + dis[k][j] < dis[i][j])
 				{
-					dis[j][k] = dis[j][i] + dis[i][k];
-					path[j][k] = i;
+					dis[i][j] = dis[i][k] + dis[k][j];
+					path[i][j] = path[k][j];
 				}
 			}
 		}
@@ -428,34 +428,67 @@ status Floyd(ALgraph* G, std::vector<std::vector<int>>& res_dis, std::vector<std
 	return OK;
 }
 
-status TSP(AMgraph* G,int s)
+int find_min_pos(const std::vector<int>& min_path,  const std::vector<bool>& is_arrived)
 {
-	std::vector<int> dp_dis(G->size);
-	for (int i = 0; i < G->edge_map[s].size(); i++)
+	int pos = -1;
+	int min = INT_MAX;
+	for (int i = 0; i < min_path.size(); i++)
 	{
-		if (i == s)
+		if (!is_arrived[i] && min_path[i] < min)
 		{
-			dp_dis[i] = 0;
-		}
-		else
-		{
-			dp_dis[i] = G->edge_map[s][i].distance;
+			min = min_path[i];
+			pos = i;
 		}
 	}
-	for(int k = 0; k < dp_dis.size();k++)
+	return pos;
+}
+
+std::vector<int> find_path(const std::vector<std::vector<int>>& path, int s, int e)
+{
+	std::vector<int> res;
+	res.push_back(e);
+	while (path[s][e] != s)
 	{
-		for (int i = 0; i < dp_dis.size(); i++)
+		e = path[s][e];
+		res.push_back(e);
+	}
+	res.push_back(s);
+	std::reverse(res.begin(), res.end());
+	return res;
+}
+
+status TSP(AMgraph* G,int s,std::vector<int>& new_path)
+{
+	std::vector<std::vector<int>> dis;
+	std::vector<std::vector<int>> path;
+	Floyd(G, dis, path);
+	std::vector<bool> visited(G->size, false);
+	visited[s] = true;
+	new_path.push_back(s);
+	int temp = s;
+	while (true)
+	{
+		int min_pos = find_min_pos(dis[temp], visited);
+		if (min_pos == -1)
 		{
-			int min = INT_MAX;
-			for (int j = 0; j < dp_dis.size(); j++)
-			{
-				if (dp_dis[j] + G->edge_map[j][i].distance < min)
-				{
-					min = dp_dis[j] + G->edge_map[j][i].distance;
-				}
-			}
-			dp_dis[i] = min;
+			break;
 		}
+		std::vector<int> temp1 = find_path(path, temp, min_pos);
+		std::vector<int>::iterator itor = temp1.begin() + 1;
+		while (itor != temp1.end())
+		{
+			new_path.push_back(*itor);
+			visited[*itor] = true;
+			itor++;
+		}
+		temp = min_pos;
+	}
+	std::vector<int> temp1 = find_path(path, new_path.back(), s);
+	std::vector<int>::iterator itor = temp1.begin() + 1;
+	while (itor != temp1.end())
+	{
+		new_path.push_back(*itor);
+		itor++;
 	}
 	return OK;
 }

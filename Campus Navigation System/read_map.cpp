@@ -160,7 +160,7 @@ status export_L_map(ALgraph* G)
 	if (fs::exists(ss.str()))
 	{
 		i++;
-		ss.clear();
+		ss.str("");
 		ss << "export_L(" << i << ").txt";
 	}
 	std::ofstream fout(ss.str());

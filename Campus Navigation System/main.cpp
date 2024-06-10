@@ -113,6 +113,7 @@ void draw_ui1()
 			{
 				break;
 			}
+			export_L_map(l_G);
 			break;
 		}
 		case 5:
@@ -680,6 +681,17 @@ void draw_ui2()
 		}
 		case 13:
 		{
+			vector<int> path;
+			int i;
+			cin >> i;
+			TSP(m_G, i, path);
+			int sum = 0;
+			for (int i = 0; i < path.size() - 1; i++)
+			{
+				cout << m_G->edge_map[path[i]][path[i + 1]].distance << '\n';
+				sum += m_G->edge_map[path[i]][path[i + 1]].distance;
+			}
+			cout << sum;
 			break;
 		}
 		case 14:
