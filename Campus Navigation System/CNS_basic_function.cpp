@@ -16,7 +16,6 @@ Status Display_FilesList(vector<string>& v_s)
 			}
 		}
 	}
-	cout << endl;
 	cout << "文件列表:" << endl;
 	for (int i = 0; i < v_s.size(); i++)
 	{

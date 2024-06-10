@@ -122,7 +122,7 @@ status export_M_map(AMgraph* G)
 		ss.clear();
 		ss << "export_M(" << i << ").txt";
 	}
-	std::ofstream fout(ss.str());
+	std::ofstream fout( "/导出/" + ss.str());
 	for (int i = 0; i < G->node_map.size(); i++)
 	{
 		fout << i + 1 << "\t" << G->node_map[i].name << '\n';
@@ -168,7 +168,7 @@ status export_L_map(ALgraph* G)
 		ss.str("");
 		ss << "export_L(" << i << ").txt";
 	}
-	std::ofstream fout(ss.str());
+	std::ofstream fout("/导出/" + ss.str());
 	for (int i = 0; i < G->node_map.size(); i++)
 	{
 		fout << i + 1 << "\t" << G->node_map[i].name << '\n';

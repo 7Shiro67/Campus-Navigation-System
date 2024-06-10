@@ -134,6 +134,7 @@ void draw_ui1()
 			{
 				int src, start, end;
 				edge src2;
+				show_node(l_G);
 				cout << "请输入修改后边的值以及边的起点和终点（用空格隔开）" << endl;
 				cin >> src >> start >> end;
 				start--, end--;
@@ -144,6 +145,7 @@ void draw_ui1()
 			{
 				int pos;
 				string val;
+				show_node(l_G);
 				cout << "请输入修改顶点的序号以及修改成的名称（用空格隔开）" << endl;
 				cin >> pos >> val;
 				pos--;
@@ -167,6 +169,7 @@ void draw_ui1()
 			if (choice == 1)
 			{
 				int  start, end;
+				show_node(l_G);
 				cout << "请输入要删除的边的起点和终点（用空格隔开）" << endl;
 				cin >> start >> end;
 				start--, end--;
@@ -176,6 +179,7 @@ void draw_ui1()
 			{
 				int pos;
 				string val;
+				show_node(l_G);
 				cout << "请输入要删除的顶点的序号" << endl;
 				cin >> pos;
 				pos--;
@@ -200,6 +204,7 @@ void draw_ui1()
 			{
 				int src, start, end;
 				edge src2;
+				show_node(l_G);
 				cout << "请输入要插入的边的值以及边的起点和终点（用空格隔开）:" << endl;
 				cin >> src >> start >> end;
 				start--, end--;
@@ -209,6 +214,7 @@ void draw_ui1()
 			else if (choice == 2)
 			{
 				string val;
+				show_node(l_G);
 				cout << "请输入插入顶点的名称（用空格隔开）:" << endl;
 				cin  >> val;
 				node temp{ val };
@@ -354,16 +360,24 @@ void draw_ui1()
 		}
 		case 12:
 		{
+			show_node(m_G);
+			unordered_map<string, string> temp;
+			if (!import_introduction(temp))
+			{
+				cout << "读入文件失败" << endl;
+				break;
+			}
+			cout << "请输入你要查询简介的地点的序号" << endl;
+			int i;
+			cin >> i;
+			string temp_s = m_G->node_map[i - 1].name;
+			cout << temp[temp_s] << endl;
 			break;
 		}
 		case 13:
 		{
 			running = false;
 			break;
-		}
-		case 14:
-		{
-			
 		}
 		default:
 			break;

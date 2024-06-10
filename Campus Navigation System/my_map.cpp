@@ -243,7 +243,12 @@ status delete_L_node(ALgraph* G, const int& i)
 		{
 			if (G->edge_map[k][l].next_node == i)
 			{
-				G->edge_map[k].erase(G->edge_map[k].begin() + l + 1);
+				G->edge_map[k].erase(G->edge_map[k].begin() + l);
+				l--;
+			}
+			else if(G->edge_map[k][l].next_node > i)
+			{
+				G->edge_map[k][l].next_node--;
 			}
 		}
 	}
@@ -277,18 +282,21 @@ status change_M_edge(AMgraph* G, const edge& src, const int& start, const int& e
 }
 status change_L_edge(ALgraph* G, const edge& src, const int& start, const int& end)
 {
-	for (int i = 0; i < G->edge_map[start].size(); i++)
+	edge temp = src;
+	temp.next_node = end;
+	for (int i = 0; i < G->edge_map[start].size() - 1; i++)
 	{
 		if (G->edge_map[start][i].next_node == end)
 		{
-			G->edge_map[start][i + 1] = src;
+			G->edge_map[start][i] = temp;
 		}
 	}
+	temp.next_node = start;
 	for (int i = 0; i < G->edge_map[end].size() - 1; i++)
 	{
 		if (G->edge_map[end][i].next_node == start)
 		{
-			G->edge_map[end][i + 1] = src;
+			G->edge_map[end][i] = temp;
 		}
 	}
 	return OK;
@@ -322,6 +330,7 @@ status delete_L_edge(ALgraph* G, const int& start, const int& end)
 status insert_M_edge(AMgraph* G, const edge& src, const int& start, const int& end)
 {
 	G->edge_map[start][end] = src;
+	G->edge_map[end][start] = src;
 	return OK;
 }
 status insert_L_edge(ALgraph* G, const edge& src, const int& start,const int& end)
