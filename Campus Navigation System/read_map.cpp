@@ -213,3 +213,30 @@ status import_introduction(std::unordered_map<std::string,std::string>& introduc
 	}
 	return OK;
 }
+
+status import_activation(std::unordered_map<std::string, std::string>& activation)
+{
+	std::string filename = "¼ò½é/input1.txt";
+	std::ifstream ifile(filename);
+	std::string s_temp;
+	if (!ifile.is_open())
+	{
+		return error;
+	}
+	else
+	{
+		std::string key, value;
+		while (!ifile.eof())
+		{
+			std::getline(ifile, s_temp);
+			if (s_temp.empty())
+			{
+				break;
+			}
+			std::stringstream ss{ s_temp };
+			ss >> key >> value;
+			activation[key] = value;
+		}
+	}
+	return OK;
+}

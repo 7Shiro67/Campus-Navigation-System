@@ -12,4 +12,6 @@ status export_L_map(ALgraph* G);
 
 status import_introduction(std::unordered_map<std::string, std::string>& introduction);
 
+status import_activation(std::unordered_map<std::string, std::string>& activation);
+
 #endif // !READ_MAP_H
