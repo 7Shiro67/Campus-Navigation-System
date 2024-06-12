@@ -236,3 +236,8 @@ vector<vector<edge>> convert_M_edge_map(ALgraph* l_G)
 	}
 	return edge_map;
 }
+
+Status Push_popular_events(ALgraph* l_G)
+{
+
+}

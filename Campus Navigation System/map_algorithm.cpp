@@ -1,5 +1,5 @@
 #include "my_map_define.h"
-#include "CNS_function.h"
+#include "map_algorithm2.h"
 #include <limits>
 #include<iostream>
 #include<queue>

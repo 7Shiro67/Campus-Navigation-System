@@ -18,9 +18,6 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="CNS_basic_function.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="my_map_define.h">
       <Filter>头文件</Filter>
     </ClCompile>
@@ -33,11 +30,11 @@
     <ClCompile Include="map_algorithm.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="map_algorithm2.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CNS_function.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="CNS_function.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -51,6 +48,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="my_map.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="map_algorithm2.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

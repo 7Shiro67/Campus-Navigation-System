@@ -130,7 +130,7 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="map_algorithm.cpp" />
-    <ClCompile Include="CNS_basic_function.cpp" />
+    <ClCompile Include="map_algorithm2.cpp" />
     <ClCompile Include="my_map.cpp" />
     <ClCompile Include="my_map_define.h" />
     <ClCompile Include="read_map.cpp" />
@@ -138,7 +138,7 @@
   <ItemGroup>
     <ClInclude Include="CNS.h" />
     <ClInclude Include="map_algorithm.h" />
-    <ClInclude Include="CNS_function.h" />
+    <ClInclude Include="map_algorithm2.h" />
     <ClInclude Include="my_map.h" />
     <ClInclude Include="readmap.h" />
   </ItemGroup>

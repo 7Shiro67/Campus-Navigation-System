@@ -560,7 +560,7 @@ void draw_ui2()
 			int choice = 0;
 			cout << "请输入你要插入的选项（1：边，2：点）：" << endl;
 			cin >> choice;
-			if (choice == 1)
+			if (choice == 1)// 进行插入新的边的操作
 			{
 				int src, start, end;
 				edge src2;
@@ -570,7 +570,7 @@ void draw_ui2()
 				src2.distance = src;
 				insert_M_edge(m_G, src2, start, end);
 			}
-			else if (choice == 2)
+			else if (choice == 2)// 进行插入新的节点的操作
 			{
 				string val;
 				cout << "请输入插入顶点的名称（用空格隔开）:" << endl;

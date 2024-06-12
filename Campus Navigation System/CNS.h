@@ -10,7 +10,7 @@
 #include<Windows.h>
 #include<string>
 #include<functional>
-#include"CNS_function.h"
+#include"map_algorithm2.h"
 #include"my_map_define.h"
 #include "readmap.h"
 #include "my_map.h"
