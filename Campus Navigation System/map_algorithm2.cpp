@@ -64,8 +64,10 @@ Status MiniST_K(AMgraph* G, vector<K_Edge>& mst_edges, int& totalcost)
         int vs2 = vexset[v2];
         if (vs1 != vs2) {
             mst_edges.push_back(e);
-            for (int j = 0; j < vexset.size(); j++) {
-                if (vexset[j] == vs2) {
+            for (int j = 0; j < vexset.size(); j++) 
+            {
+                if (vexset[j] == vs2) 
+                {
                     vexset[j] = vs1;
                 }
             }
@@ -80,9 +82,12 @@ Status MiniST_K(ALgraph* G, vector<K_Edge>& mst_edges, int& totalcost)
     vector<K_Edge> Edges;
 
     // 将图的所有边添加到Edges向量中
-    for (int i = 0; i < G->edge_map.size(); i++) {
-        for (int j = 0; j < G->edge_map[i].size(); j++) {
-            if (G->edge_map[i][j].distance != INT_MAX) {
+    for (int i = 0; i < G->edge_map.size(); i++) 
+    {
+        for (int j = 0; j < G->edge_map[i].size(); j++) 
+        {
+            if (G->edge_map[i][j].distance != INT_MAX) 
+            {
                 K_Edge new_edge = { i, j, G->edge_map[i][j].distance };
                 Edges.push_back(new_edge);
             }
@@ -96,7 +101,8 @@ Status MiniST_K(ALgraph* G, vector<K_Edge>& mst_edges, int& totalcost)
     bool flag = true;
 
     // 初始化顶点集合
-    for (int i = 0; i < G->node_map.size(); i++) {
+    for (int i = 0; i < G->node_map.size(); i++) 
+    {
         vexset.push_back(i);
     }
 
@@ -108,7 +114,8 @@ Status MiniST_K(ALgraph* G, vector<K_Edge>& mst_edges, int& totalcost)
         int vs2 = vexset[v2];
         if (vs1 != vs2) {
             mst_edges.push_back(e);
-            for (int j = 0; j < vexset.size(); j++) {
+            for (int j = 0; j < vexset.size(); j++) 
+            {
                 if (vexset[j] == vs2) {
                     vexset[j] = vs1;
                 }
@@ -136,7 +143,8 @@ void preorder_traversal(int node, unordered_map<int, vector<int>>& adj_list, vec
 }
 
 // 另一版本的先序遍历函数，适用于ALgraph
-void preorder_traversal(int node, unordered_map<int, vector<int>>& adj_list, vector<bool>& visited, int& totalcost, ALgraph* G) {
+void preorder_traversal(int node, unordered_map<int, vector<int>>& adj_list, vector<bool>& visited, int& totalcost, ALgraph* G) 
+{
     visited[node] = true;
     for (int neighbor : adj_list[node]) {
         if (!visited[neighbor]) {
@@ -150,7 +158,8 @@ void preorder_traversal(int node, unordered_map<int, vector<int>>& adj_list, vec
 }
 
 // 基于最小生成树的旅行商问题（TSP）求解函数，适用于AMgraph
-Status TSP(int start_node, AMgraph* G, int& totalcost, int flag) {
+Status TSP(int start_node, AMgraph* G, int& totalcost, int flag) 
+{
     vector<K_Edge> mst_edges;
     totalcost = 0;
     Status status = MiniST_K(G, mst_edges, totalcost);
@@ -183,7 +192,8 @@ Status TSP(int start_node, AMgraph* G, int& totalcost, int flag) {
 }
 
 // 基于最小生成树的旅行商问题（TSP）求解函数，适用于ALgraph
-Status TSP(int start_node, ALgraph* G) {
+Status TSP(int start_node, ALgraph* G) 
+{
     G->edge_map = convert_M_edge_map(G);  // 将邻接表转换为邻接矩阵
     vector<K_Edge> mst_edges;
     int totalcost = 0;
@@ -212,7 +222,8 @@ Status TSP(int start_node, ALgraph* G) {
 }
 
 // 将邻接表图转换为邻接矩阵图
-vector<vector<edge>> convert_M_edge_map(ALgraph* l_G) {
+vector<vector<edge>> convert_M_edge_map(ALgraph* l_G) 
+{
     vector<vector<edge>> edge_map(l_G->node_map.size(), vector<edge>(l_G->node_map.size()));
 
     for (int i = 0; i < l_G->size; i++) {
