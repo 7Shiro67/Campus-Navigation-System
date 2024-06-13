@@ -119,7 +119,7 @@ status update_map_l_size(ALgraph* G)	// 更新邻接表图的节点数
 	return OK;
 }
 
-status show_L_map(const ALgraph* G)
+status show_L_map(const ALgraph* G) // 输出地图的邻接表
 {
 	if (!check_map_null((void*)G))
 	{

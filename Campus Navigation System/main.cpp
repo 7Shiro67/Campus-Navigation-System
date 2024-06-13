@@ -51,7 +51,7 @@ void draw_ui1()
 	while (running)
 	{
 		cout << "----------------------------------------\n";
-		cout << "图书管理系统菜单:" << endl;
+		cout << "校园导航系统菜单:" << endl;
 		cout << "1.  地图的邻接表的构建\n";
 		cout << "2.  输出地图的邻接表\n";
 		cout << "3.  导入地图数据为邻接表\n";
@@ -412,7 +412,7 @@ void draw_ui2()
 	while (running)
 	{
 		cout << "----------------------------------------\n";
-		cout << "图书管理系统菜单:" << endl;
+		cout << "校园导航系统菜单:" << endl;
 		cout << "1.  地图的邻接矩阵的构建\n";
 		cout << "2.  输出地图的邻接矩阵\n";
 		cout << "3.  导入地图数据为邻接矩阵\n";
@@ -656,18 +656,18 @@ void draw_ui2()
 			end--;
 			vector<int> min_path(m_G->size, INT_MAX);
 			vector<int> before(m_G->size, -1);
-			dijkstra(m_G, min_path, before, start);
-			cout << m_G->node_map[end].name << " : " << min_path[end] << endl;
+			dijkstra(m_G, min_path, before, start); // 调用Dijkstra算法计算最短路径
+			cout << m_G->node_map[end].name << " : " << min_path[end] << endl;// 输出终点顶点名称和最短路径距离
 			int temp = end;
 			vector<int> temp_v;
-			while (temp != start)
+			while (temp != start) // 回溯路径
 			{
 				temp_v.push_back(temp);
 				temp = before[temp];
 			}
 			temp_v.push_back(start);
-			reverse(temp_v.begin(), temp_v.end());
-			for (auto& i : temp_v)
+			reverse(temp_v.begin(), temp_v.end());// 反转路径以正确顺序显示
+			for (auto& i : temp_v) // 输出路径
 			{
 				cout << i + 1 << ' ';
 			}
