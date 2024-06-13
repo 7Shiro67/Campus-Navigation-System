@@ -64,7 +64,8 @@ void draw_ui1()
 		cout << "10. 输出从指定的景点(起点)到达另一指定景点(终点)的最短距离，以及经过的景点\n";
 		cout << "11. 输出图中所有两景点之间的最短距离\n";
 		cout << "12. 输出景点的简介\n";
-		cout << "13. 退出\n";
+		cout << "14. 最近景点热门活动推荐\n";
+		cout << "15. 退出\n";
 		cout << "----------------------------------------\n";
 		unsigned int run_status;
 		cout << "输入你的选择:";
@@ -376,6 +377,24 @@ void draw_ui1()
 		}
 		case 13:
 		{
+			if (!check_map_null(l_G))
+			{
+				break;
+			}
+			show_node(l_G);
+			cout << "请输入景点序号" << endl;
+			int start;
+			cin >> start;
+			vector<vector<int>> dis;
+			vector<vector<int>> path;
+			Floyd(l_G, dis, path);
+			unordered_map<string, string> activation;
+			import_activation(activation);
+			show_hot_place_activation<ALgraph>(l_G, activation, start, dis);
+			break;
+		}
+		case 14:
+		{
 			running = false;
 			break;
 		}
@@ -408,7 +427,8 @@ void draw_ui2()
 		cout << "12. 输出景点的简介\n";
 		cout << "13. 有关选项8的另一种实现弗洛伊德+贪心实现\n";
 		cout << "14. 最小生成树与弗洛伊德实现的对比\n";
-		cout << "15. 退出\n";
+		cout << "15. 最近景点热门活动推荐\n";
+		cout << "16. 退出\n";
 		cout << "----------------------------------------\n";
 		unsigned int run_status;
 		cout << "输入你的选择:";
@@ -737,6 +757,24 @@ void draw_ui2()
 			break;
 		}
 		case 15:
+		{
+			if (!check_map_null(m_G))
+			{
+				break;
+			}
+			show_node(m_G);
+			cout << "请输入景点序号" << endl;
+			int start;
+			cin >> start;
+			vector<vector<int>> dis;
+			vector<vector<int>> path;
+			Floyd(m_G, dis, path);
+			unordered_map<string, string> activation;
+			import_activation(activation);
+			show_hot_place_activation<AMgraph>(m_G, activation, start, dis);
+			break;
+		}
+		case 16:
 		{
 			running = false;
 			break;

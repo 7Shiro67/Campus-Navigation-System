@@ -29,3 +29,7 @@ status Floyd(ALgraph* G ,std::vector<std::vector<int>>& res_dis, std::vector<std
 status oneTSP(AMgraph* G, int s, std::vector<int>& new_path);
 
 double show_difference_TSP(AMgraph* G, int& cnt1, int& cnt2);
+
+template<typename T>
+status show_hot_place_activation(T* G, const unordered_map<std::string, std::string>& map,
+	int s, const vector<vector<int>>& dis);
