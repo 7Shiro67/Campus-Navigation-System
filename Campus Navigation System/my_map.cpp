@@ -2,7 +2,7 @@
 #include<iostream>
 #include<iomanip>
 
-status create_M_map(AMgraph*& G)
+status create_M_map(AMgraph*& G)	// 创建邻接矩阵
 {
 	G = new AMgraph;
 	if (G == nullptr)
@@ -15,7 +15,7 @@ status create_M_map(AMgraph*& G)
 	}
 }
 
-status create_L_map(ALgraph*& G)
+status create_L_map(ALgraph*& G)	// 创建邻接表
 {
 	G = new ALgraph;
 	if (G == nullptr)
@@ -28,7 +28,7 @@ status create_L_map(ALgraph*& G)
 	}
 }
 
-status check_map_null(void* G)
+status check_map_null(void* G)	// 检查图是否为空
 {
 	if (!G)
 	{
@@ -107,19 +107,19 @@ status show_M_map(const AMgraph* G)
 	return OK;
 }
 
-status update_map_m_size(AMgraph* G)
+status update_map_m_size(AMgraph* G)	// 更新邻接矩阵图的节点数
 {
 	G->size = G->node_map.size();
 	return OK;
 }
 
-status update_map_l_size(ALgraph* G)
+status update_map_l_size(ALgraph* G)	// 更新邻接表图的节点数
 {
 	G->size = G->node_map.size();
 	return OK;
 }
 
-status show_L_map(const ALgraph* G)
+status show_L_map(const ALgraph* G) // 输出地图的邻接表
 {
 	if (!check_map_null((void*)G))
 	{
@@ -173,7 +173,7 @@ status find_pos_node(ALgraph* G, const std::string s, int& pos)
 status find_pos_edge(AMgraph* G, const std::string start, const std::string end, int& row,int& column)
 {
 	row = -1, column = -1;
-	for (int i = 0; i < G->node_map.size(); i++)
+	for (int i = 0; i < G->node_map.size(); i++)	// 遍历节点找到指定节点的位置
 	{
 		if (G->node_map[i].name == start)
 		{
@@ -245,7 +245,7 @@ status delete_M_node(AMgraph* G, const int& i)
 	update_map_m_size(G);
 	return OK;
 }
-status delete_L_node(ALgraph* G, const int& i)
+status delete_L_node(ALgraph* G, const int& i) //邻接表节点的删除
 {
 	if (i < 0 || i > G->size)
 	{
@@ -271,7 +271,7 @@ status delete_L_node(ALgraph* G, const int& i)
 	update_map_l_size(G);
 	return OK;
 }
-status insert_M_node(AMgraph* G, const node& src)
+status insert_M_node(AMgraph* G, const node& src)// 插入新的顶点
 {
 	G->node_map.push_back(src);
 	update_map_m_size(G);
@@ -283,14 +283,14 @@ status insert_M_node(AMgraph* G, const node& src)
 	return OK;
 }
 
-status insert_L_node(ALgraph* G, const node& src)
+status insert_L_node(ALgraph* G, const node& src) // 在邻接表图插入新的顶点
 {
 	G->node_map.push_back(src);
 	update_map_l_size(G);
 	G->edge_map.resize(G->size);
 	return OK;
 }
-status change_M_edge(AMgraph* G, const edge& src, const int& start, const int& end)
+status change_M_edge(AMgraph* G, const edge& src, const int& start, const int& end) // 修改邻接矩阵图边的距离
 {
 	if ((start < 0 || start > G->size) && (end < 0 || end > G->size))
 	{
@@ -300,7 +300,7 @@ status change_M_edge(AMgraph* G, const edge& src, const int& start, const int& e
 	G->edge_map[end][start] = src;
 	return OK;
 }
-status change_L_edge(ALgraph* G, const edge& src, const int& start, const int& end)
+status change_L_edge(ALgraph* G, const edge& src, const int& start, const int& end) // 修改邻接表图边的距离
 {
 	if ((start < 0 || start > G->size) && (end < 0 || end > G->size))
 	{
@@ -326,7 +326,7 @@ status change_L_edge(ALgraph* G, const edge& src, const int& start, const int& e
 	return OK;
 }
 
-status delete_M_edge(AMgraph* G, const int& start, const int& end)
+status delete_M_edge(AMgraph* G, const int& start, const int& end) // 邻接矩阵图边的删除
 {
 	if ((start < 0 || start > G->size) && (end < 0 || end > G->size))
 	{
@@ -337,7 +337,7 @@ status delete_M_edge(AMgraph* G, const int& start, const int& end)
 	return OK;
 }
 
-status delete_L_edge(ALgraph* G, const int& start, const int& end)
+status delete_L_edge(ALgraph* G, const int& start, const int& end) // 邻接表图边的删除
 {
 	if ((start < 0 || start > G->size) && (end < 0 || end > G->size))
 	{
@@ -359,7 +359,8 @@ status delete_L_edge(ALgraph* G, const int& start, const int& end)
 	}
 	return OK;
 }
-status insert_M_edge(AMgraph* G, const edge& src, const int& start, const int& end)
+
+status insert_M_edge(AMgraph* G, const edge& src, const int& start, const int& end) // 在邻接矩阵图插入新的边
 {
 	if ((start < 0 || start > G->size) && (end < 0 || end > G->size))
 	{
@@ -369,7 +370,7 @@ status insert_M_edge(AMgraph* G, const edge& src, const int& start, const int& e
 	G->edge_map[end][start] = src;
 	return OK;
 }
-status insert_L_edge(ALgraph* G, const edge& src, const int& start,const int& end)
+status insert_L_edge(ALgraph* G, const edge& src, const int& start,const int& end) // 在邻接表图插入新的边
 {
 	if ((start < 0 || start > G->size) && (end < 0 || end > G->size))
 	{

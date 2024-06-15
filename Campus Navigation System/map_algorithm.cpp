@@ -1,5 +1,5 @@
 #include "my_map_define.h"
-#include "CNS_function.h"
+#include "map_algorithm2.h"
 #include <limits>
 #include<iostream>
 #include<queue>
@@ -253,7 +253,7 @@ status Kruskal(ALgraph* G,ALgraph& G_generate)
 	return OK;
 }
 
-status dijkstra(AMgraph* G,std::vector<int>& min_path,std::vector<int>& before,int S)
+status dijkstra(AMgraph* G,std::vector<int>& min_path,std::vector<int>& before,int S)  // 利用Dijkstra算法计算最短路径
 {
 	min_path[S] = 0;
 	std::vector<bool> is_arrived(G->size, false);
@@ -290,7 +290,7 @@ status dijkstra(AMgraph* G,std::vector<int>& min_path,std::vector<int>& before,i
 	return OK;
 }
 
-status dijkstra(ALgraph* G, std::vector<int>& min_path, std::vector<int>& before, int S)
+status dijkstra(ALgraph* G, std::vector<int>& min_path, std::vector<int>& before, int S) // 利用Dijkstra算法计算最短路径
 {
 	min_path[S] = 0;
 	std::vector<bool> is_arrived(G->size, false);
@@ -327,7 +327,7 @@ status dijkstra(ALgraph* G, std::vector<int>& min_path, std::vector<int>& before
 	return OK;
 }
 
-status Floyd(AMgraph* G, std::vector<std::vector<int>>& res_dis, std::vector<std::vector<int>>& res_path)
+status Floyd(AMgraph* G, std::vector<std::vector<int>>& res_dis, std::vector<std::vector<int>>& res_path) // Floyd算法，适用于邻接矩阵表示的图，计算最短路径
 {
 	std::vector<std::vector<int>> dis(G->size,std::vector<int>(G->size,0));
 	std::vector<std::vector<int>> path(G->size, std::vector<int>(G->size,0));
@@ -517,3 +517,29 @@ double show_difference_TSP(AMgraph* G, int& cnt1, int& cnt2)
 	cnt2 = G->size - cnt;
 	return cnt * 1.0 / cnt2;
 }
+
+template<typename T>
+status show_hot_place_activation(T* G,const unordered_map<std::string,std::string>& map,
+	int s,const vector<vector<int>>& dis)
+{
+	int pos = -1;
+	int min = INT_MAX;
+	for (int i = 0; i < dis[s].size(); i++)
+	{
+		if (dis[s][i] < min)
+		{
+			pos = i;
+			min = dis[s][i];
+		}
+	}
+	string temp = G->node_map[pos].name;
+	cout << "最近景点为:" << temp << '\n'
+		<< "活动为：" << map.at(temp) << endl;
+	return OK;
+}
+
+template status show_hot_place_activation<AMgraph>(AMgraph* G, const unordered_map<std::string, std::string>& map,
+	int s, const vector<vector<int>>& dis);
+
+template status show_hot_place_activation<ALgraph>(ALgraph* G, const unordered_map<std::string, std::string>& map,
+	int s, const vector<vector<int>>& dis);
