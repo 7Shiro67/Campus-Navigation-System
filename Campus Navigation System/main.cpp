@@ -118,7 +118,10 @@ void draw_ui1()
 			{
 				break;
 			}
-			export_L_map(l_G);
+			if (export_L_map(l_G))
+			{
+				cout << "导出成功" << endl;
+			}
 			break;
 		}
 		case 5:
@@ -139,7 +142,10 @@ void draw_ui1()
 				cin >> src >> start >> end;
 				start--, end--;
 				src2.distance = src;
-				change_L_edge(l_G, src2, start, end);
+				if (!change_L_edge(l_G, src2, start, end))
+				{
+					break;
+				}
 			}
 			else if (choice == 2)
 			{
@@ -149,7 +155,10 @@ void draw_ui1()
 				cout << "请输入修改顶点的序号以及修改成的名称（用空格隔开）" << endl;
 				cin >> pos >> val;
 				pos--;
-				change_L_node(l_G, val, pos);
+				if (!change_L_node(l_G, val, pos))
+				{
+					break;
+				}
 			}
 			else
 			{
@@ -173,7 +182,10 @@ void draw_ui1()
 				cout << "请输入要删除的边的起点和终点（用空格隔开）" << endl;
 				cin >> start >> end;
 				start--, end--;
-				delete_L_edge(l_G, start, end);
+				if (!delete_L_edge(l_G, start, end))
+				{
+					break;
+				}
 			}
 			else if (choice == 2)
 			{
@@ -183,7 +195,10 @@ void draw_ui1()
 				cout << "请输入要删除的顶点的序号" << endl;
 				cin >> pos;
 				pos--;
-				delete_L_node(l_G, pos);
+				if (!delete_L_node(l_G, pos))
+				{
+					break;
+				}
 			}
 			else
 			{
@@ -209,7 +224,10 @@ void draw_ui1()
 				cin >> src >> start >> end;
 				start--, end--;
 				src2.distance = src;
-				insert_L_edge(l_G, src2, start, end);
+				if (!insert_L_edge(l_G, src2, start, end))
+				{
+					break;
+				}
 			}
 			else if (choice == 2)
 			{
@@ -218,7 +236,10 @@ void draw_ui1()
 				cout << "请输入插入顶点的名称（用空格隔开）:" << endl;
 				cin  >> val;
 				node temp{ val };
-				insert_L_node(l_G, temp);
+				if (insert_L_node(l_G, temp))
+				{
+					break;
+				}
 			}
 			else
 			{
@@ -241,7 +262,10 @@ void draw_ui1()
 			}
 			cout << "请输入起始点的序号: ";
 			cin >> start;
-			TSP(start, l_G);
+			if (!TSP(start, l_G))
+			{
+				break;
+			}
 			break;
 		}
 		case 9:
@@ -257,7 +281,10 @@ void draw_ui1()
 			start--;
 			vector<int> min_path(l_G->size, INT_MAX);
 			vector<int> before(l_G->size, -1);
-			dijkstra(l_G, min_path, before, start);
+			if (!dijkstra(l_G, min_path, before, start))
+			{
+				break;
+			}
 			for (int i = 0; i < l_G->size; i++)
 			{
 				if (i != start)
@@ -298,7 +325,10 @@ void draw_ui1()
 			end--;
 			vector<int> min_path(l_G->size, INT_MAX);
 			vector<int> before(l_G->size, -1);
-			dijkstra(l_G, min_path, before, start);
+			if (!dijkstra(l_G, min_path, before, start))
+			{
+				break;
+			}
 			cout << l_G->node_map[end].name << " : " << min_path[end] << endl;
 			int temp = end;
 			vector<int> temp_v;
@@ -324,7 +354,10 @@ void draw_ui1()
 			}
 			std::vector<std::vector<int>> res_dis;
 			std::vector<std::vector<int>> path;
-			Floyd(l_G, res_dis, path);
+			if (!Floyd(l_G, res_dis, path))
+			{
+				break;
+			}
 			for (int i = 0; i < l_G->node_map.size(); i++)
 			{
 				std::cout << i + 1 << "\t" << l_G->node_map[i].name << '\n';
@@ -462,7 +495,10 @@ void draw_ui2()
 			{
 				break;
 			}
-			export_M_map(m_G);
+			if (export_M_map(m_G))
+			{
+				cout << "导出成功" << endl;
+			}
 			break;
 		}
 		case 5:
@@ -482,7 +518,10 @@ void draw_ui2()
 				cin >> src >> start >> end;
 				start--, end--;
 				src2.distance = src;
-				change_M_edge(m_G, src2, start, end);
+				if (!change_M_edge(m_G, src2, start, end))
+				{
+					break;
+				}
 			}
 			else if (choice == 2)
 			{
@@ -491,7 +530,10 @@ void draw_ui2()
 				cout << "请输入修改顶点的序号以及修改成的名称（用空格隔开）" << endl;
 				cin >> pos >> val;
 				pos--;
-				change_M_node(m_G, val, pos);
+				if (!change_M_node(m_G, val, pos))
+				{
+					break;
+				}
 			}
 			else
 			{
@@ -514,7 +556,11 @@ void draw_ui2()
 				cout << "请输入要删除的边的起点和终点（用空格隔开）" << endl;
 				cin >> start >> end;
 				start--, end--;
-				delete_M_edge(m_G, start, end);
+				if (!delete_M_edge(m_G, start, end))
+				{
+					cout << "输入错误" << endl;
+					break;
+				}
 			}
 			else if (choice == 2)
 			{
@@ -523,7 +569,10 @@ void draw_ui2()
 				cout << "请输入要删除的顶点的序号" << endl;
 				cin >> pos;
 				pos--;
-				delete_M_node(m_G, pos);
+				if (!delete_M_node(m_G, pos))
+				{
+					break;
+				}
 			}
 			else
 			{
@@ -548,7 +597,10 @@ void draw_ui2()
 				cin >> src >> start >> end;
 				start--, end--;
 				src2.distance = src;
-				insert_M_edge(m_G, src2, start, end);
+				if (!insert_M_edge(m_G, src2, start, end))
+				{
+					break;
+				}
 			}
 			else if (choice == 2)
 			{
@@ -556,7 +608,10 @@ void draw_ui2()
 				cout << "请输入插入顶点的名称（用空格隔开）:" << endl;
 				cin >> val;
 				node temp{ val };
-				insert_M_node(m_G, temp);
+				if (!insert_M_node(m_G, temp))
+				{
+					break;
+				}
 			}
 			else
 			{
@@ -595,7 +650,10 @@ void draw_ui2()
 			start--;
 			vector<int> min_path(m_G->size, INT_MAX);
 			vector<int> before(m_G->size, -1);
-			dijkstra(m_G, min_path, before, start);
+			if (!dijkstra(m_G, min_path, before, start))
+			{
+				break;
+			}
 			for (int i = 0; i < m_G->size; i++)
 			{
 				if (i != start)
@@ -636,7 +694,10 @@ void draw_ui2()
 			end--;
 			vector<int> min_path(m_G->size, INT_MAX);
 			vector<int> before(m_G->size, -1);
-			dijkstra(m_G, min_path, before, start);
+			if (!dijkstra(m_G, min_path, before, start))
+			{
+				break;
+			}
 			cout << m_G->node_map[end].name << " : " << min_path[end] << endl;
 			int temp = end;
 			vector<int> temp_v;
@@ -662,7 +723,10 @@ void draw_ui2()
 			}
 			std::vector<std::vector<int>> res_dis;
 			std::vector<std::vector<int>> path;
-			Floyd(m_G, res_dis, path);
+			if (!Floyd(m_G, res_dis, path))
+			{
+				break;
+			}
 			for (int i = 0; i < m_G->node_map.size(); i++)
 			{
 				std::cout << i + 1 << "\t" << m_G->node_map[i].name << '\n';
@@ -717,7 +781,10 @@ void draw_ui2()
 			vector<int> path;
 			int i;
 			cin >> i;
-			oneTSP(m_G, i, path);
+			if (!oneTSP(m_G, i, path))
+			{
+				break;
+			}
 			int sum = 0;
 			for (int i = 0; i < path.size() - 1; i++)
 			{
