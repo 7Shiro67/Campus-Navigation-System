@@ -214,16 +214,28 @@ status find_pos_edge(ALgraph* G, const std::string start, const std::string end,
 
 status change_M_node(AMgraph* G, const std::string des_str, const int& i)
 {
+	if (i < 0 || i > G->size)
+	{
+		return error;
+	}
 	G->node_map[i].name = des_str;
 	return OK;
 }
 status change_L_node(ALgraph* G, const std::string des_str, const int& i)
 {
+	if (i < 0 || i > G->size)
+	{
+		return error;
+	}
 	G->node_map[i].name = des_str;
 	return OK;
 }
 status delete_M_node(AMgraph* G, const int& i)
 {
+	if (i < 0 || i > G->size)
+	{
+		return error;
+	}
 	G->node_map.erase(G->node_map.begin() + i);
 	G->edge_map.erase(G->edge_map.begin() + i);
 	for (int k = 0; k < G->edge_map.size(); k++)
@@ -235,6 +247,10 @@ status delete_M_node(AMgraph* G, const int& i)
 }
 status delete_L_node(ALgraph* G, const int& i) //邻接表节点的删除
 {
+	if (i < 0 || i > G->size)
+	{
+		return error;
+	}
 	G->node_map.erase(G->node_map.begin() + i);
 	G->edge_map.erase(G->edge_map.begin() + i);
 	for (int k = 0; k < G->edge_map.size(); k++)
@@ -276,12 +292,20 @@ status insert_L_node(ALgraph* G, const node& src) // 在邻接表图插入新的顶点
 }
 status change_M_edge(AMgraph* G, const edge& src, const int& start, const int& end) // 修改邻接矩阵图边的距离
 {
+	if ((start < 0 || start > G->size) && (end < 0 || end > G->size))
+	{
+		return error;
+	}
 	G->edge_map[start][end] = src;
 	G->edge_map[end][start] = src;
 	return OK;
 }
 status change_L_edge(ALgraph* G, const edge& src, const int& start, const int& end) // 修改邻接表图边的距离
 {
+	if ((start < 0 || start > G->size) && (end < 0 || end > G->size))
+	{
+		return error;
+	}
 	edge temp = src;
 	temp.next_node = end;
 	for (int i = 0; i < G->edge_map[start].size() - 1; i++)
@@ -304,6 +328,10 @@ status change_L_edge(ALgraph* G, const edge& src, const int& start, const int& e
 
 status delete_M_edge(AMgraph* G, const int& start, const int& end) // 邻接矩阵图边的删除
 {
+	if ((start < 0 || start > G->size) && (end < 0 || end > G->size))
+	{
+		return error;
+	}
 	G->edge_map[start][end].distance = INT_MAX;
 	G->edge_map[end][start].distance = INT_MAX;
 	return OK;
@@ -311,6 +339,10 @@ status delete_M_edge(AMgraph* G, const int& start, const int& end) // 邻接矩阵图
 
 status delete_L_edge(ALgraph* G, const int& start, const int& end) // 邻接表图边的删除
 {
+	if ((start < 0 || start > G->size) && (end < 0 || end > G->size))
+	{
+		return error;
+	}
 	for (int i = 0; i < G->edge_map[start].size(); i++)
 	{
 		if (G->edge_map[start][i].next_node == end)
@@ -330,12 +362,20 @@ status delete_L_edge(ALgraph* G, const int& start, const int& end) // 邻接表图边
 
 status insert_M_edge(AMgraph* G, const edge& src, const int& start, const int& end) // 在邻接矩阵图插入新的边
 {
+	if ((start < 0 || start > G->size) && (end < 0 || end > G->size))
+	{
+		return error;
+	}
 	G->edge_map[start][end] = src;
 	G->edge_map[end][start] = src;
 	return OK;
 }
 status insert_L_edge(ALgraph* G, const edge& src, const int& start,const int& end) // 在邻接表图插入新的边
 {
+	if ((start < 0 || start > G->size) && (end < 0 || end > G->size))
+	{
+		return error;
+	}
 	edge temp = src;
 	temp.next_node = end;
 	G->edge_map[start].push_back(temp);

@@ -59,6 +59,7 @@ status import_M_map(AMgraph* G,std::vector<std::string> v_s)
 			G->edge_map[column][row].distance = temp;
 		}
 	}
+	ifile.close();
 	return OK;
 }
 
@@ -108,6 +109,7 @@ status import_L_map(ALgraph* G, std::vector<std::string> v_s)
 			G->edge_map[end].push_back({ start,temp });
 		}
 	}
+	ifile.close();
 	return OK;
 }
 
@@ -154,6 +156,7 @@ status export_M_map(AMgraph* G)
 		}
 		fout << '\n';
 	}
+	fout.close();
 	return OK;
 }
 
@@ -184,6 +187,7 @@ status export_L_map(ALgraph* G)
 		}
 		fout << '\n';
 	}
+	fout.close();
 	return OK;
 }
 
@@ -211,6 +215,7 @@ status import_introduction(std::unordered_map<std::string,std::string>& introduc
 			introduction[key] = value;
 		}
 	}
+	ifile.close();
 	return OK;
 }
 

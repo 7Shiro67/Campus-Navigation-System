@@ -11,16 +11,16 @@ int main()
 	bool running = true;
 	while (running)
 	{
-		cout << "ÇëÊäÈëÄãµÄÑ¡Ôñ:" << endl;
-		cout << "1.ÁÚ½Ó±í" << endl;
-		cout << "2.ÁÚ½Ó¾ØÕó" << endl;
-		cout << "3.ÍË³ö" << endl;
+		cout << "è¯·è¾“å…¥ä½ çš„é€‰æ‹©:" << endl;
+		cout << "1.é‚»æ¥è¡¨" << endl;
+		cout << "2.é‚»æ¥çŸ©é˜µ" << endl;
+		cout << "3.é€€å‡º" << endl;
 		int run_status;
 		cin >> run_status;
 		while (cin.fail()) {
 			cin.clear();
 			cin.ignore();
-			cout << "ÊäÈë´íÎó£¬ÇëÖØĞÂÊäÈë" << endl;
+			cout << "è¾“å…¥é”™è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥" << endl;
 			cin >> run_status;
 		}
 		system("cls");
@@ -38,7 +38,7 @@ int main()
 		}
 		else
 		{
-			cout << "ÊäÈë´íÎó" << endl;
+			cout << "è¾“å…¥é”™è¯¯" << endl;
 		}
 	}return 0;
 }
@@ -51,29 +51,29 @@ void draw_ui1()
 	while (running)
 	{
 		cout << "----------------------------------------\n";
-		cout << "Ğ£Ô°µ¼º½ÏµÍ³²Ëµ¥:" << endl;
-		cout << "1.  µØÍ¼µÄÁÚ½Ó±íµÄ¹¹½¨\n";
-		cout << "2.  Êä³öµØÍ¼µÄÁÚ½Ó±í\n";
-		cout << "3.  µ¼ÈëµØÍ¼Êı¾İÎªÁÚ½Ó±í\n";
-		cout << "4.  µ¼³öµØÍ¼Êı¾İ\n";
-		cout << "5.  µØÍ¼µÄÁÚ½Ó±íµÄĞŞ¸Ä\n";
-		cout << "6.  µØÍ¼µÄÁÚ½Ó±íµÄÉ¾³ı\n";
-		cout << "7.  µØÍ¼µÄÁÚ½Ó±íµÄ²åÈë\n";
-		cout << "8.  ´ò¿¨ËùÓĞ¾°µãµÄ¹ı³ÌÖĞËù¾­¹ıµÄËùÓĞ¾°µãÒÔ¼°¸÷¶Î¾àÀëºÍ×Ü¾àÀë\n";
-		cout << "9.  Êä³ö´ÓÖ¸¶¨µã³ö·¢£¬µ½´ïÍ¼ÖĞËùÓĞ¾°µãµÄ×î¶Ì¾àÀë¼°¾­¹ıµÄµØµã\n";
-		cout << "10. Êä³ö´ÓÖ¸¶¨µÄ¾°µã(Æğµã)µ½´ïÁíÒ»Ö¸¶¨¾°µã(ÖÕµã)µÄ×î¶Ì¾àÀë£¬ÒÔ¼°¾­¹ıµÄ¾°µã\n";
-		cout << "11. Êä³öÍ¼ÖĞËùÓĞÁ½¾°µãÖ®¼äµÄ×î¶Ì¾àÀë\n";
-		cout << "12. Êä³ö¾°µãµÄ¼ò½é\n";
-		cout << "14. ×î½ü¾°µãÈÈÃÅ»î¶¯ÍÆ¼ö\n";
-		cout << "15. ÍË³ö\n";
+		cout << "æ ¡å›­å¯¼èˆªç³»ç»Ÿèœå•:" << endl;
+		cout << "1.  åœ°å›¾çš„é‚»æ¥è¡¨çš„æ„å»º\n";
+		cout << "2.  è¾“å‡ºåœ°å›¾çš„é‚»æ¥è¡¨\n";
+		cout << "3.  å¯¼å…¥åœ°å›¾æ•°æ®ä¸ºé‚»æ¥è¡¨\n";
+		cout << "4.  å¯¼å‡ºåœ°å›¾æ•°æ®\n";
+		cout << "5.  åœ°å›¾çš„é‚»æ¥è¡¨çš„ä¿®æ”¹\n";
+		cout << "6.  åœ°å›¾çš„é‚»æ¥è¡¨çš„åˆ é™¤\n";
+		cout << "7.  åœ°å›¾çš„é‚»æ¥è¡¨çš„æ’å…¥\n";
+		cout << "8.  æ‰“å¡æ‰€æœ‰æ™¯ç‚¹çš„è¿‡ç¨‹ä¸­æ‰€ç»è¿‡çš„æ‰€æœ‰æ™¯ç‚¹ä»¥åŠå„æ®µè·ç¦»å’Œæ€»è·ç¦»\n";
+		cout << "9.  è¾“å‡ºä»æŒ‡å®šç‚¹å‡ºå‘ï¼Œåˆ°è¾¾å›¾ä¸­æ‰€æœ‰æ™¯ç‚¹çš„æœ€çŸ­è·ç¦»åŠç»è¿‡çš„åœ°ç‚¹\n";
+		cout << "10. è¾“å‡ºä»æŒ‡å®šçš„æ™¯ç‚¹(èµ·ç‚¹)åˆ°è¾¾å¦ä¸€æŒ‡å®šæ™¯ç‚¹(ç»ˆç‚¹)çš„æœ€çŸ­è·ç¦»ï¼Œä»¥åŠç»è¿‡çš„æ™¯ç‚¹\n";
+		cout << "11. è¾“å‡ºå›¾ä¸­æ‰€æœ‰ä¸¤æ™¯ç‚¹ä¹‹é—´çš„æœ€çŸ­è·ç¦»\n";
+		cout << "12. è¾“å‡ºæ™¯ç‚¹çš„ç®€ä»‹\n";
+		cout << "14. æœ€è¿‘æ™¯ç‚¹çƒ­é—¨æ´»åŠ¨æ¨è\n";
+		cout << "15. é€€å‡º\n";
 		cout << "----------------------------------------\n";
 		unsigned int run_status;
-		cout << "ÊäÈëÄãµÄÑ¡Ôñ:";
+		cout << "è¾“å…¥ä½ çš„é€‰æ‹©:";
 		cin >> run_status;
 		while (cin.fail()) {
 			cin.clear();
 			cin.ignore();
-			cout << "ÊäÈë´íÎó£¬ÇëÖØĞÂÊäÈë" << endl;
+			cout << "è¾“å…¥é”™è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥" << endl;
 			cin >> run_status;
 		}
 		system("cls");
@@ -83,7 +83,7 @@ void draw_ui1()
 		{
 			if (create_L_map(l_G))
 			{
-				cout << "ÁÚ½Ó±í´´½¨³É¹¦"<<endl;
+				cout << "é‚»æ¥è¡¨åˆ›å»ºæˆåŠŸ"<<endl;
 			}
 			break;
 		}
@@ -106,10 +106,10 @@ void draw_ui1()
 			create_L_map(l_G);
 			vector<string> v_s;
 			Display_FilesList(v_s);
-			cout << "ÇëÊäÈëÎÄ¼şµÄĞòºÅ:";
+			cout << "è¯·è¾“å…¥æ–‡ä»¶çš„åºå·:";
 			if (import_L_map(l_G,v_s))
 			{
-				cout << "µ¼Èë³É¹¦" << endl;
+				cout << "å¯¼å…¥æˆåŠŸ" << endl;
 			}
 			break;
 		}
@@ -119,7 +119,10 @@ void draw_ui1()
 			{
 				break;
 			}
-			export_L_map(l_G);
+			if (export_L_map(l_G))
+			{
+				cout << "å¯¼å‡ºæˆåŠŸ" << endl;
+			}
 			break;
 		}
 		case 5:
@@ -129,32 +132,38 @@ void draw_ui1()
 				break;
 			}
 			int choice = 0;
-			cout << "ÇëÊäÈëÄãÒªĞŞ¸ÄµÄÑ¡Ïî£¨1£º±ß£¬2£ºµã£©£º" << endl;
+			cout << "è¯·è¾“å…¥ä½ è¦ä¿®æ”¹çš„é€‰é¡¹ï¼ˆ1ï¼šè¾¹ï¼Œ2ï¼šç‚¹ï¼‰ï¼š" << endl;
 			cin >> choice;
 			if (choice == 1)
 			{
 				int src, start, end;
 				edge src2;
 				show_node(l_G);
-				cout << "ÇëÊäÈëĞŞ¸Äºó±ßµÄÖµÒÔ¼°±ßµÄÆğµãºÍÖÕµã£¨ÓÃ¿Õ¸ñ¸ô¿ª£©" << endl;
+				cout << "è¯·è¾“å…¥ä¿®æ”¹åè¾¹çš„å€¼ä»¥åŠè¾¹çš„èµ·ç‚¹å’Œç»ˆç‚¹ï¼ˆç”¨ç©ºæ ¼éš”å¼€ï¼‰" << endl;
 				cin >> src >> start >> end;
 				start--, end--;
 				src2.distance = src;
-				change_L_edge(l_G, src2, start, end);
+				if (!change_L_edge(l_G, src2, start, end))
+				{
+					break;
+				}
 			}
 			else if (choice == 2)
 			{
 				int pos;
 				string val;
 				show_node(l_G);
-				cout << "ÇëÊäÈëĞŞ¸Ä¶¥µãµÄĞòºÅÒÔ¼°ĞŞ¸Ä³ÉµÄÃû³Æ£¨ÓÃ¿Õ¸ñ¸ô¿ª£©" << endl;
+				cout << "è¯·è¾“å…¥ä¿®æ”¹é¡¶ç‚¹çš„åºå·ä»¥åŠä¿®æ”¹æˆçš„åç§°ï¼ˆç”¨ç©ºæ ¼éš”å¼€ï¼‰" << endl;
 				cin >> pos >> val;
 				pos--;
-				change_L_node(l_G, val, pos);
+				if (!change_L_node(l_G, val, pos))
+				{
+					break;
+				}
 			}
 			else
 			{
-				cout << "ÊäÈëÊıÖµ´íÎó" << endl;
+				cout << "è¾“å…¥æ•°å€¼é”™è¯¯" << endl;
 			}
 			break;
 		}
@@ -165,30 +174,36 @@ void draw_ui1()
 				break;
 			}
 			int choice = 0;
-			cout << "ÇëÊäÈëÄãÒªÉ¾³ıµÄÑ¡Ïî£¨1£º±ß£¬2£ºµã£©£º" << endl;
+			cout << "è¯·è¾“å…¥ä½ è¦åˆ é™¤çš„é€‰é¡¹ï¼ˆ1ï¼šè¾¹ï¼Œ2ï¼šç‚¹ï¼‰ï¼š" << endl;
 			cin >> choice;
 			if (choice == 1)
 			{
 				int  start, end;
 				show_node(l_G);
-				cout << "ÇëÊäÈëÒªÉ¾³ıµÄ±ßµÄÆğµãºÍÖÕµã£¨ÓÃ¿Õ¸ñ¸ô¿ª£©" << endl;
+				cout << "è¯·è¾“å…¥è¦åˆ é™¤çš„è¾¹çš„èµ·ç‚¹å’Œç»ˆç‚¹ï¼ˆç”¨ç©ºæ ¼éš”å¼€ï¼‰" << endl;
 				cin >> start >> end;
 				start--, end--;
-				delete_L_edge(l_G, start, end);
+				if (!delete_L_edge(l_G, start, end))
+				{
+					break;
+				}
 			}
 			else if (choice == 2)
 			{
 				int pos;
 				string val;
 				show_node(l_G);
-				cout << "ÇëÊäÈëÒªÉ¾³ıµÄ¶¥µãµÄĞòºÅ" << endl;
+				cout << "è¯·è¾“å…¥è¦åˆ é™¤çš„é¡¶ç‚¹çš„åºå·" << endl;
 				cin >> pos;
 				pos--;
-				delete_L_node(l_G, pos);
+				if (!delete_L_node(l_G, pos))
+				{
+					break;
+				}
 			}
 			else
 			{
-				cout << "ÊäÈëÊıÖµ´íÎó" << endl;
+				cout << "è¾“å…¥æ•°å€¼é”™è¯¯" << endl;
 			}
 			break;
 		}
@@ -199,31 +214,37 @@ void draw_ui1()
 				break;
 			}
 			int choice = 0;
-			cout << "ÇëÊäÈëÄãÒª²åÈëµÄÑ¡Ïî£¨1£º±ß£¬2£ºµã£©£º" << endl;
+			cout << "è¯·è¾“å…¥ä½ è¦æ’å…¥çš„é€‰é¡¹ï¼ˆ1ï¼šè¾¹ï¼Œ2ï¼šç‚¹ï¼‰ï¼š" << endl;
 			cin >> choice;
 			if (choice == 1)
 			{
 				int src, start, end;
 				edge src2;
 				show_node(l_G);
-				cout << "ÇëÊäÈëÒª²åÈëµÄ±ßµÄÖµÒÔ¼°±ßµÄÆğµãºÍÖÕµã£¨ÓÃ¿Õ¸ñ¸ô¿ª£©:" << endl;
+				cout << "è¯·è¾“å…¥è¦æ’å…¥çš„è¾¹çš„å€¼ä»¥åŠè¾¹çš„èµ·ç‚¹å’Œç»ˆç‚¹ï¼ˆç”¨ç©ºæ ¼éš”å¼€ï¼‰:" << endl;
 				cin >> src >> start >> end;
 				start--, end--;
 				src2.distance = src;
-				insert_L_edge(l_G, src2, start, end);
+				if (!insert_L_edge(l_G, src2, start, end))
+				{
+					break;
+				}
 			}
 			else if (choice == 2)
 			{
 				string val;
 				show_node(l_G);
-				cout << "ÇëÊäÈë²åÈë¶¥µãµÄÃû³Æ£¨ÓÃ¿Õ¸ñ¸ô¿ª£©:" << endl;
+				cout << "è¯·è¾“å…¥æ’å…¥é¡¶ç‚¹çš„åç§°ï¼ˆç”¨ç©ºæ ¼éš”å¼€ï¼‰:" << endl;
 				cin  >> val;
 				node temp{ val };
-				insert_L_node(l_G, temp);
+				if (insert_L_node(l_G, temp))
+				{
+					break;
+				}
 			}
 			else
 			{
-				cout << "ÊäÈëÊıÖµ´íÎó" << endl;
+				cout << "è¾“å…¥æ•°å€¼é”™è¯¯" << endl;
 			}
 			break;
 		}
@@ -235,14 +256,17 @@ void draw_ui1()
 				break;
 			}
 			int start = -1;
-			cout << "¾°µãÁĞ±í:" << endl;
+			cout << "æ™¯ç‚¹åˆ—è¡¨:" << endl;
 			for (int i = 0; i < l_G->node_map.size(); i++)
 			{
 				cout << i << ". " << fixed << l_G->node_map[i].name << endl;
 			}
-			cout << "ÇëÊäÈëÆğÊ¼µãµÄĞòºÅ: ";
+			cout << "è¯·è¾“å…¥èµ·å§‹ç‚¹çš„åºå·: ";
 			cin >> start;
-			TSP(start, l_G);
+			if (!TSP(start, l_G))
+			{
+				break;
+			}
 			break;
 		}
 		case 9:
@@ -252,13 +276,16 @@ void draw_ui1()
 				break;
 			}
 			show_node(l_G);
-			cout << "ÇëÊäÈë¶¥µãĞòºÅ" << endl;
+			cout << "è¯·è¾“å…¥é¡¶ç‚¹åºå·" << endl;
 			int start;
 			cin >> start;
 			start--;
 			vector<int> min_path(l_G->size, INT_MAX);
 			vector<int> before(l_G->size, -1);
-			dijkstra(l_G, min_path, before, start);
+			if (!dijkstra(l_G, min_path, before, start))
+			{
+				break;
+			}
 			for (int i = 0; i < l_G->size; i++)
 			{
 				if (i != start)
@@ -289,17 +316,20 @@ void draw_ui1()
 				break;
 			}
 			show_node(l_G);
-			cout << "ÇëÊäÈëÆğµã¶¥µãĞòºÅ" << endl;
+			cout << "è¯·è¾“å…¥èµ·ç‚¹é¡¶ç‚¹åºå·" << endl;
 			int start;
 			cin >> start;
-			cout << "ÇëÊäÈëÖÕµã¶¥µãĞòºÅ" << endl;
+			cout << "è¯·è¾“å…¥ç»ˆç‚¹é¡¶ç‚¹åºå·" << endl;
 			int end;
 			cin >> end;
 			start--;
 			end--;
 			vector<int> min_path(l_G->size, INT_MAX);
 			vector<int> before(l_G->size, -1);
-			dijkstra(l_G, min_path, before, start);
+			if (!dijkstra(l_G, min_path, before, start))
+			{
+				break;
+			}
 			cout << l_G->node_map[end].name << " : " << min_path[end] << endl;
 			int temp = end;
 			vector<int> temp_v;
@@ -325,7 +355,10 @@ void draw_ui1()
 			}
 			std::vector<std::vector<int>> res_dis;
 			std::vector<std::vector<int>> path;
-			Floyd(l_G, res_dis, path);
+			if (!Floyd(l_G, res_dis, path))
+			{
+				break;
+			}
 			for (int i = 0; i < l_G->node_map.size(); i++)
 			{
 				std::cout << i + 1 << "\t" << l_G->node_map[i].name << '\n';
@@ -365,10 +398,10 @@ void draw_ui1()
 			unordered_map<string, string> temp;
 			if (!import_introduction(temp))
 			{
-				cout << "¶ÁÈëÎÄ¼şÊ§°Ü" << endl;
+				cout << "è¯»å…¥æ–‡ä»¶å¤±è´¥" << endl;
 				break;
 			}
-			cout << "ÇëÊäÈëÄãÒª²éÑ¯¼ò½éµÄµØµãµÄĞòºÅ" << endl;
+			cout << "è¯·è¾“å…¥ä½ è¦æŸ¥è¯¢ç®€ä»‹çš„åœ°ç‚¹çš„åºå·" << endl;
 			int i;
 			cin >> i;
 			string temp_s = m_G->node_map[i - 1].name;
@@ -382,7 +415,7 @@ void draw_ui1()
 				break;
 			}
 			show_node(l_G);
-			cout << "ÇëÊäÈë¾°µãĞòºÅ" << endl;
+			cout << "è¯·è¾“å…¥æ™¯ç‚¹åºå·" << endl;
 			int start;
 			cin >> start;
 			vector<vector<int>> dis;
@@ -412,31 +445,31 @@ void draw_ui2()
 	while (running)
 	{
 		cout << "----------------------------------------\n";
-		cout << "Ğ£Ô°µ¼º½ÏµÍ³²Ëµ¥:" << endl;
-		cout << "1.  µØÍ¼µÄÁÚ½Ó¾ØÕóµÄ¹¹½¨\n";
-		cout << "2.  Êä³öµØÍ¼µÄÁÚ½Ó¾ØÕó\n";
-		cout << "3.  µ¼ÈëµØÍ¼Êı¾İÎªÁÚ½Ó¾ØÕó\n";
-		cout << "4.  µ¼³öµØÍ¼Êı¾İ\n";
-		cout << "5.  µØÍ¼µÄÁÚ½Ó¾ØÕóµÄĞŞ¸Ä\n";
-		cout << "6.  µØÍ¼µÄÁÚ½Ó¾ØÕóµÄÉ¾³ı\n";
-		cout << "7.  µØÍ¼µÄÁÚ½Ó¾ØÕóµÄ²åÈë\n";
-		cout << "8.  ´ò¿¨ËùÓĞ¾°µãµÄ¹ı³ÌÖĞËù¾­¹ıµÄËùÓĞ¾°µãÒÔ¼°¸÷¶Î¾àÀëºÍ×Ü¾àÀë\n";
-		cout << "9.  Êä³ö´ÓÖ¸¶¨µã³ö·¢£¬µ½´ïÍ¼ÖĞËùÓĞ¾°µãµÄ×î¶Ì¾àÀë¼°¾­¹ıµÄµØµã\n";
-		cout << "10. Êä³ö´ÓÖ¸¶¨µÄ¾°µã(Æğµã)µ½´ïÁíÒ»Ö¸¶¨¾°µã(ÖÕµã)µÄ×î¶Ì¾àÀë£¬ÒÔ¼°¾­¹ıµÄ¾°µã\n";
-		cout << "11. Êä³öÍ¼ÖĞËùÓĞÁ½¾°µãÖ®¼äµÄ×î¶Ì¾àÀë\n";
-		cout << "12. Êä³ö¾°µãµÄ¼ò½é\n";
-		cout << "13. ÓĞ¹ØÑ¡Ïî8µÄÁíÒ»ÖÖÊµÏÖ¸¥ÂåÒÁµÂ+Ì°ĞÄÊµÏÖ\n";
-		cout << "14. ×îĞ¡Éú³ÉÊ÷Óë¸¥ÂåÒÁµÂÊµÏÖµÄ¶Ô±È\n";
-		cout << "15. ×î½ü¾°µãÈÈÃÅ»î¶¯ÍÆ¼ö\n";
-		cout << "16. ÍË³ö\n";
+		cout << "æ ¡å›­å¯¼èˆªç³»ç»Ÿèœå•:" << endl;
+		cout << "1.  åœ°å›¾çš„é‚»æ¥çŸ©é˜µçš„æ„å»º\n";
+		cout << "2.  è¾“å‡ºåœ°å›¾çš„é‚»æ¥çŸ©é˜µ\n";
+		cout << "3.  å¯¼å…¥åœ°å›¾æ•°æ®ä¸ºé‚»æ¥çŸ©é˜µ\n";
+		cout << "4.  å¯¼å‡ºåœ°å›¾æ•°æ®\n";
+		cout << "5.  åœ°å›¾çš„é‚»æ¥çŸ©é˜µçš„ä¿®æ”¹\n";
+		cout << "6.  åœ°å›¾çš„é‚»æ¥çŸ©é˜µçš„åˆ é™¤\n";
+		cout << "7.  åœ°å›¾çš„é‚»æ¥çŸ©é˜µçš„æ’å…¥\n";
+		cout << "8.  æ‰“å¡æ‰€æœ‰æ™¯ç‚¹çš„è¿‡ç¨‹ä¸­æ‰€ç»è¿‡çš„æ‰€æœ‰æ™¯ç‚¹ä»¥åŠå„æ®µè·ç¦»å’Œæ€»è·ç¦»\n";
+		cout << "9.  è¾“å‡ºä»æŒ‡å®šç‚¹å‡ºå‘ï¼Œåˆ°è¾¾å›¾ä¸­æ‰€æœ‰æ™¯ç‚¹çš„æœ€çŸ­è·ç¦»åŠç»è¿‡çš„åœ°ç‚¹\n";
+		cout << "10. è¾“å‡ºä»æŒ‡å®šçš„æ™¯ç‚¹(èµ·ç‚¹)åˆ°è¾¾å¦ä¸€æŒ‡å®šæ™¯ç‚¹(ç»ˆç‚¹)çš„æœ€çŸ­è·ç¦»ï¼Œä»¥åŠç»è¿‡çš„æ™¯ç‚¹\n";
+		cout << "11. è¾“å‡ºå›¾ä¸­æ‰€æœ‰ä¸¤æ™¯ç‚¹ä¹‹é—´çš„æœ€çŸ­è·ç¦»\n";
+		cout << "12. è¾“å‡ºæ™¯ç‚¹çš„ç®€ä»‹\n";
+		cout << "13. æœ‰å…³é€‰é¡¹8çš„å¦ä¸€ç§å®ç°å¼—æ´›ä¼Šå¾·+è´ªå¿ƒå®ç°\n";
+		cout << "14. æœ€å°ç”Ÿæˆæ ‘ä¸å¼—æ´›ä¼Šå¾·å®ç°çš„å¯¹æ¯”\n";
+		cout << "15. æœ€è¿‘æ™¯ç‚¹çƒ­é—¨æ´»åŠ¨æ¨è\n";
+		cout << "16. é€€å‡º\n";
 		cout << "----------------------------------------\n";
 		unsigned int run_status;
-		cout << "ÊäÈëÄãµÄÑ¡Ôñ:";
+		cout << "è¾“å…¥ä½ çš„é€‰æ‹©:";
 		cin >> run_status;
 		while (cin.fail()) {
 			cin.clear();
 			cin.ignore();
-			cout << "ÊäÈë´íÎó£¬ÇëÖØĞÂÊäÈë" << endl;
+			cout << "è¾“å…¥é”™è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥" << endl;
 			cin >> run_status;
 		}
 		system("cls");
@@ -446,7 +479,7 @@ void draw_ui2()
 		{
 			if (create_M_map(m_G))
 			{
-				cout << "ÁÚ½Ó¾ØÕó´´½¨³É¹¦"<<endl;
+				cout << "é‚»æ¥çŸ©é˜µåˆ›å»ºæˆåŠŸ"<<endl;
 			}
 			break;
 		}
@@ -469,10 +502,10 @@ void draw_ui2()
 			create_M_map(m_G);
 			vector<string> v_s;
 			Display_FilesList(v_s);
-			cout << "ÇëÊäÈëÎÄ¼şµÄĞòºÅ:";
+			cout << "è¯·è¾“å…¥æ–‡ä»¶çš„åºå·:";
 			if (import_M_map(m_G,v_s))
 			{
-				cout << "µ¼Èë³É¹¦" << endl;
+				cout << "å¯¼å…¥æˆåŠŸ" << endl;
 			}
 			break;
 		}
@@ -482,7 +515,10 @@ void draw_ui2()
 			{
 				break;
 			}
-			export_M_map(m_G);
+			if (export_M_map(m_G))
+			{
+				cout << "å¯¼å‡ºæˆåŠŸ" << endl;
+			}
 			break;
 		}
 		case 5:
@@ -492,30 +528,36 @@ void draw_ui2()
 				break;
 			}
 			int choice = 0;
-			cout << "ÇëÊäÈëÄãÒªĞŞ¸ÄµÄÑ¡Ïî£¨1£º±ß£¬2£ºµã£©£º" << endl;
+			cout << "è¯·è¾“å…¥ä½ è¦ä¿®æ”¹çš„é€‰é¡¹ï¼ˆ1ï¼šè¾¹ï¼Œ2ï¼šç‚¹ï¼‰ï¼š" << endl;
 			cin >> choice;
 			if (choice == 1)
 			{
 				int src, start, end;
 				edge src2;
-				cout << "ÇëÊäÈëĞŞ¸Äºó±ßµÄÖµÒÔ¼°±ßµÄÆğµãºÍÖÕµã£¨ÓÃ¿Õ¸ñ¸ô¿ª£©" << endl;
+				cout << "è¯·è¾“å…¥ä¿®æ”¹åè¾¹çš„å€¼ä»¥åŠè¾¹çš„èµ·ç‚¹å’Œç»ˆç‚¹ï¼ˆç”¨ç©ºæ ¼éš”å¼€ï¼‰" << endl;
 				cin >> src >> start >> end;
 				start--, end--;
 				src2.distance = src;
-				change_M_edge(m_G, src2, start, end);
+				if (!change_M_edge(m_G, src2, start, end))
+				{
+					break;
+				}
 			}
 			else if (choice == 2)
 			{
 				int pos;
 				string val;
-				cout << "ÇëÊäÈëĞŞ¸Ä¶¥µãµÄĞòºÅÒÔ¼°ĞŞ¸Ä³ÉµÄÃû³Æ£¨ÓÃ¿Õ¸ñ¸ô¿ª£©" << endl;
+				cout << "è¯·è¾“å…¥ä¿®æ”¹é¡¶ç‚¹çš„åºå·ä»¥åŠä¿®æ”¹æˆçš„åç§°ï¼ˆç”¨ç©ºæ ¼éš”å¼€ï¼‰" << endl;
 				cin >> pos >> val;
 				pos--;
-				change_M_node(m_G, val, pos);
+				if (!change_M_node(m_G, val, pos))
+				{
+					break;
+				}
 			}
 			else
 			{
-				cout << "ÊäÈëÊıÖµ´íÎó" << endl;
+				cout << "è¾“å…¥æ•°å€¼é”™è¯¯" << endl;
 			}
 			break;
 		}
@@ -526,28 +568,35 @@ void draw_ui2()
 				break;
 			}
 			int choice = 0;
-			cout << "ÇëÊäÈëÄãÒªÉ¾³ıµÄÑ¡Ïî£¨1£º±ß£¬2£ºµã£©£º" << endl;
+			cout << "è¯·è¾“å…¥ä½ è¦åˆ é™¤çš„é€‰é¡¹ï¼ˆ1ï¼šè¾¹ï¼Œ2ï¼šç‚¹ï¼‰ï¼š" << endl;
 			cin >> choice;
 			if (choice == 1)
 			{
 				int  start, end;
-				cout << "ÇëÊäÈëÒªÉ¾³ıµÄ±ßµÄÆğµãºÍÖÕµã£¨ÓÃ¿Õ¸ñ¸ô¿ª£©" << endl;
+				cout << "è¯·è¾“å…¥è¦åˆ é™¤çš„è¾¹çš„èµ·ç‚¹å’Œç»ˆç‚¹ï¼ˆç”¨ç©ºæ ¼éš”å¼€ï¼‰" << endl;
 				cin >> start >> end;
 				start--, end--;
-				delete_M_edge(m_G, start, end);
+				if (!delete_M_edge(m_G, start, end))
+				{
+					cout << "è¾“å…¥é”™è¯¯" << endl;
+					break;
+				}
 			}
 			else if (choice == 2)
 			{
 				int pos;
 				string val;
-				cout << "ÇëÊäÈëÒªÉ¾³ıµÄ¶¥µãµÄĞòºÅ" << endl;
+				cout << "è¯·è¾“å…¥è¦åˆ é™¤çš„é¡¶ç‚¹çš„åºå·" << endl;
 				cin >> pos;
 				pos--;
-				delete_M_node(m_G, pos);
+				if (!delete_M_node(m_G, pos))
+				{
+					break;
+				}
 			}
 			else
 			{
-				cout << "ÊäÈëÊıÖµ´íÎó" << endl;
+				cout << "è¾“å…¥æ•°å€¼é”™è¯¯" << endl;
 			}
 			break;
 		}
@@ -558,29 +607,35 @@ void draw_ui2()
 				break;
 			}
 			int choice = 0;
-			cout << "ÇëÊäÈëÄãÒª²åÈëµÄÑ¡Ïî£¨1£º±ß£¬2£ºµã£©£º" << endl;
+			cout << "è¯·è¾“å…¥ä½ è¦æ’å…¥çš„é€‰é¡¹ï¼ˆ1ï¼šè¾¹ï¼Œ2ï¼šç‚¹ï¼‰ï¼š" << endl;
 			cin >> choice;
-			if (choice == 1)// ½øĞĞ²åÈëĞÂµÄ±ßµÄ²Ù×÷
+			if (choice == 1)// è¿›è¡Œæ’å…¥æ–°çš„è¾¹çš„æ“ä½œ
 			{
 				int src, start, end;
 				edge src2;
-				cout << "ÇëÊäÈëÒª²åÈëµÄ±ßµÄÖµÒÔ¼°±ßµÄÆğµãºÍÖÕµã£¨ÓÃ¿Õ¸ñ¸ô¿ª£©:" << endl;
+				cout << "è¯·è¾“å…¥è¦æ’å…¥çš„è¾¹çš„å€¼ä»¥åŠè¾¹çš„èµ·ç‚¹å’Œç»ˆç‚¹ï¼ˆç”¨ç©ºæ ¼éš”å¼€ï¼‰:" << endl;
 				cin >> src >> start >> end;
 				start--, end--;
 				src2.distance = src;
-				insert_M_edge(m_G, src2, start, end);
+				if (!insert_M_edge(m_G, src2, start, end))
+				{
+					break;
+				}
 			}
-			else if (choice == 2)// ½øĞĞ²åÈëĞÂµÄ½ÚµãµÄ²Ù×÷
+			else if (choice == 2)// è¿›è¡Œæ’å…¥æ–°çš„èŠ‚ç‚¹çš„æ“ä½œ
 			{
 				string val;
-				cout << "ÇëÊäÈë²åÈë¶¥µãµÄÃû³Æ£¨ÓÃ¿Õ¸ñ¸ô¿ª£©:" << endl;
+				cout << "è¯·è¾“å…¥æ’å…¥é¡¶ç‚¹çš„åç§°ï¼ˆç”¨ç©ºæ ¼éš”å¼€ï¼‰:" << endl;
 				cin >> val;
 				node temp{ val };
-				insert_M_node(m_G, temp);
+				if (!insert_M_node(m_G, temp))
+				{
+					break;
+				}
 			}
 			else
 			{
-				cout << "ÊäÈëÊıÖµ´íÎó" << endl;
+				cout << "è¾“å…¥æ•°å€¼é”™è¯¯" << endl;
 			}
 			break;
 		}
@@ -591,12 +646,12 @@ void draw_ui2()
 				break;
 			}	
 			int start = -1;
-			cout << "¾°µãÁĞ±í:" << endl;
+			cout << "æ™¯ç‚¹åˆ—è¡¨:" << endl;
 			for (int i = 0; i < m_G->node_map.size(); i++)
 			{
 				cout<<i<<". "<<fixed<<m_G->node_map[i].name<<endl;
 			}
-			cout << "ÇëÊäÈëÆğÊ¼µãµÄĞòºÅ: ";
+			cout << "è¯·è¾“å…¥èµ·å§‹ç‚¹çš„åºå·: ";
 			cin >> start;
 			int totalcost;
 			TSP(start, m_G, totalcost,1);
@@ -609,13 +664,16 @@ void draw_ui2()
 				break;
 			}
 			show_node(m_G);
-			cout << "ÇëÊäÈë¶¥µãĞòºÅ" << endl;
+			cout << "è¯·è¾“å…¥é¡¶ç‚¹åºå·" << endl;
 			int start;
 			cin >> start;
 			start--;
 			vector<int> min_path(m_G->size, INT_MAX);
 			vector<int> before(m_G->size, -1);
-			dijkstra(m_G, min_path, before, start);
+			if (!dijkstra(m_G, min_path, before, start))
+			{
+				break;
+			}
 			for (int i = 0; i < m_G->size; i++)
 			{
 				if (i != start)
@@ -646,28 +704,32 @@ void draw_ui2()
 				break;
 			}
 			show_node(m_G);
-			cout << "ÇëÊäÈëÆğµã¶¥µãĞòºÅ" << endl;
+			cout << "è¯·è¾“å…¥èµ·ç‚¹é¡¶ç‚¹åºå·" << endl;
 			int start;
 			cin >> start;
-			cout << "ÇëÊäÈëÖÕµã¶¥µãĞòºÅ" << endl;
+			cout << "è¯·è¾“å…¥ç»ˆç‚¹é¡¶ç‚¹åºå·" << endl;
 			int end;
 			cin >> end;
 			start--;
 			end--;
 			vector<int> min_path(m_G->size, INT_MAX);
 			vector<int> before(m_G->size, -1);
-			dijkstra(m_G, min_path, before, start); // µ÷ÓÃDijkstraËã·¨¼ÆËã×î¶ÌÂ·¾¶
-			cout << m_G->node_map[end].name << " : " << min_path[end] << endl;// Êä³öÖÕµã¶¥µãÃû³ÆºÍ×î¶ÌÂ·¾¶¾àÀë
+			if (!dijkstra(m_G, min_path, before, start))
+			{
+				break;
+			}
+			cout << m_G->node_map[end].name << " : " << min_path[end] << endl;
+
 			int temp = end;
 			vector<int> temp_v;
-			while (temp != start) // »ØËİÂ·¾¶
+			while (temp != start) // å›æº¯è·¯å¾„
 			{
 				temp_v.push_back(temp);
 				temp = before[temp];
 			}
 			temp_v.push_back(start);
-			reverse(temp_v.begin(), temp_v.end());// ·´×ªÂ·¾¶ÒÔÕıÈ·Ë³ĞòÏÔÊ¾
-			for (auto& i : temp_v) // Êä³öÂ·¾¶
+			reverse(temp_v.begin(), temp_v.end());// åè½¬è·¯å¾„ä»¥æ­£ç¡®é¡ºåºæ˜¾ç¤º
+			for (auto& i : temp_v) // è¾“å‡ºè·¯å¾„
 			{
 				cout << i + 1 << ' ';
 			}
@@ -682,7 +744,10 @@ void draw_ui2()
 			}
 			std::vector<std::vector<int>> res_dis;
 			std::vector<std::vector<int>> path;
-			Floyd(m_G, res_dis, path);
+			if (!Floyd(m_G, res_dis, path))
+			{
+				break;
+			}
 			for (int i = 0; i < m_G->node_map.size(); i++)
 			{
 				std::cout << i + 1 << "\t" << m_G->node_map[i].name << '\n';
@@ -722,10 +787,10 @@ void draw_ui2()
 			unordered_map<string, string> temp;
 			if (!import_introduction(temp))
 			{
-				cout << "¶ÁÈëÎÄ¼şÊ§°Ü" << endl;
+				cout << "è¯»å…¥æ–‡ä»¶å¤±è´¥" << endl;
 				break;
 			}
-			cout << "ÇëÊäÈëÄãÒª²éÑ¯¼ò½éµÄµØµãµÄĞòºÅ" << endl;
+			cout << "è¯·è¾“å…¥ä½ è¦æŸ¥è¯¢ç®€ä»‹çš„åœ°ç‚¹çš„åºå·" << endl;
 			int i;
 			cin >> i;
 			string temp_s = m_G->node_map[i - 1].name;
@@ -737,7 +802,10 @@ void draw_ui2()
 			vector<int> path;
 			int i;
 			cin >> i;
-			oneTSP(m_G, i, path);
+			if (!oneTSP(m_G, i, path))
+			{
+				break;
+			}
 			int sum = 0;
 			for (int i = 0; i < path.size() - 1; i++)
 			{
@@ -751,8 +819,8 @@ void draw_ui2()
 		{
 			int cnt1, cnt2;
 			double res = show_difference_TSP(m_G,cnt1,cnt2);
-			cout << "×îĞ¡Éú³ÉÊ÷Ëã·¨×îÓÅµÄÇé¿öÓĞ" << cnt1 << "ÖÖ" << endl;
-			cout << "×î¶ÌÂ·¾¶Ëã·¨×îÓÅµÄÇé¿öÓĞ" << cnt2 << "ÖÖ" << endl;
+			cout << "æœ€å°ç”Ÿæˆæ ‘ç®—æ³•æœ€ä¼˜çš„æƒ…å†µæœ‰" << cnt1 << "ç§" << endl;
+			cout << "æœ€çŸ­è·¯å¾„ç®—æ³•æœ€ä¼˜çš„æƒ…å†µæœ‰" << cnt2 << "ç§" << endl;
 			cout << res << endl;
 			break;
 		}
@@ -763,7 +831,7 @@ void draw_ui2()
 				break;
 			}
 			show_node(m_G);
-			cout << "ÇëÊäÈë¾°µãĞòºÅ" << endl;
+			cout << "è¯·è¾“å…¥æ™¯ç‚¹åºå·" << endl;
 			int start;
 			cin >> start;
 			vector<vector<int>> dis;
